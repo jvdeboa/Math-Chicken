@@ -35,3 +35,8 @@ func _move(_delta:float, input_x: float) -> void:
 func update_animation(input_x: float) -> void:
 	if texture and input_x != 0:
 		texture.flip_h = (input_x < 0)
+
+func enter() -> void:
+	if chicken:
+		chicken.velocity.y = chicken.JUMP_VELOCITY
+		chicken.consume_coyote_time()

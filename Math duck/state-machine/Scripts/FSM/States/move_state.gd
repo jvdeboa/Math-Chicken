@@ -13,7 +13,7 @@ func enter_state() -> void:
 		_animation.play("Run")
 
 func update(_delta: float) -> void:
-	if Input.is_action_just_pressed("jump") and chicken.is_on_floor():
+	if Input.is_action_just_pressed("jump") and chicken and chicken.can_coyote_jump():
 		switch_state.emit(jump_state)
 		return 
 		
