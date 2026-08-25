@@ -8,7 +8,6 @@
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=2062730502]
 repeat_size = Vector2(288, 0)
-autoscroll = Vector2(10, 0)
 repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=627706550]
@@ -16,7 +15,6 @@ texture = ExtResource("1_e8j8q")
 
 [node name="Parallax2D3" type="Parallax2D" parent="." unique_id=441600985]
 repeat_size = Vector2(288, 0)
-autoscroll = Vector2(15, 0)
 repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D3" unique_id=1815716109]
@@ -24,7 +22,6 @@ texture = ExtResource("2_iq1of")
 
 [node name="Parallax2D2" type="Parallax2D" parent="." unique_id=2141184841]
 repeat_size = Vector2(288, 0)
-autoscroll = Vector2(40, 0)
 repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=1446107555]
