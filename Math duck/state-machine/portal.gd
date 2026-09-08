@@ -9,23 +9,26 @@ extends Area2D
 		ativo = value
 		_update_portal_state()
 
-@onready var sprite: Sprite2D = $Sprite2D 
+
+@onready var cadeado: Sprite2D = $cadeado
 
 func _ready() -> void:
-
 	body_entered.connect(_on_body_entered)
 	_update_portal_state()
-
 
 func _update_portal_state() -> void:
 	if not is_inside_tree():
 		await ready
 		
-	
+
 	$CollisionShape2D.set_deferred("disabled", not ativo)
+	
+	
+	if cadeado:
+		cadeado.visible = not ativo
 
 func _on_body_entered(body: Node2D) -> void:
-
+	
 	if ativo and body is CharacterBody2D:
 		if target_scene != "":
 			get_tree().change_scene_to_file(target_scene)
@@ -35,6 +38,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 func activate() -> void:
 	ativo = true
+
 
 func deactivate() -> void:
 	ativo = false

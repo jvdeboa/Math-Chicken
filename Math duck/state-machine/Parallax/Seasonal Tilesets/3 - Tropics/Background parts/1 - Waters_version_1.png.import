@@ -17,6 +17,7 @@ dest_files=["res://.godot/imported/1 - Waters_version_1.png-96d6c990960a9d30abb7
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

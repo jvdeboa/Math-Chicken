@@ -1,13 +1,26 @@
 [gd_scene format=3 uid="uid://bys7gueg1q52s"]
 
 [ext_resource type="Script" uid="uid://dqsqvaomsyc31" path="res://portal.gd" id="1_0r486"]
+[ext_resource type="Texture2D" uid="uid://c2a2gbrhi03hv" path="res://sprites/porta.png" id="2_ef3v5"]
+[ext_resource type="Texture2D" uid="uid://cyjo5bi0b7b3s" path="res://sprites/cadeado.png" id="3_grrij"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ef3v5"]
+size = Vector2(36, 32)
 
 [node name="Portal" type="Area2D" unique_id=410026563]
 script = ExtResource("1_0r486")
+ativo = true
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=59199975]
+[node name="porta" type="Sprite2D" parent="." unique_id=59199975]
+position = Vector2(0, -10)
+scale = Vector2(1.1875, 1.2656249)
+texture = ExtResource("2_ef3v5")
+
+[node name="cadeado" type="Sprite2D" parent="." unique_id=1449928558]
+position = Vector2(-1.1920929e-07, 1.1920929e-07)
+scale = Vector2(1.09375, 0.96874994)
+texture = ExtResource("3_grrij")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1449604590]
+position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_ef3v5")
