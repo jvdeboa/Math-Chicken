@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://dgxro6cbxb6fl" path="res://Main Character/dash_ghost.gd" id="9_xevwv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhvu3"]
-size = Vector2(25, 27)
+size = Vector2(25, 26.5)
 
 [sub_resource type="Animation" id="Animation_4sjlk"]
 resource_name = "Idle"
@@ -153,6 +153,7 @@ texture = ExtResource("1_dd465")
 hframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=487147574]
+position = Vector2(0, -0.25)
 shape = SubResource("RectangleShape2D_lhvu3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1843334776]
