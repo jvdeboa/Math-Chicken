@@ -22,7 +22,8 @@ PhantomCameraManager="*uid://duq6jhf6unyis"
 [display]
 
 window/size/viewport_width=640
-window/size/viewport_height=320
+window/size/viewport_height=360
+window/stretch/mode="viewport"
 
 [editor_plugins]
 
