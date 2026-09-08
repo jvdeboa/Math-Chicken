@@ -1,0 +1,198 @@
+[gd_scene format=3 uid="uid://c55n8k331p5do"]
+
+[ext_resource type="Texture2D" uid="uid://dk4677v3w3xf" path="res://Main Character/Cute Chicken 2 idle.png" id="1_dd465"]
+[ext_resource type="Script" uid="uid://2e4060glgbkk" path="res://Scripts/FSM/state_machine.gd" id="1_ij6vw"]
+[ext_resource type="Script" uid="uid://bmnn3qhrfuo6g" path="res://Scripts/character_body_2d.gd" id="1_lhvu3"]
+[ext_resource type="Texture2D" uid="uid://doaoldg8tm6ix" path="res://Main Character/Cute Chicken 2 walk.png" id="2_lhvu3"]
+[ext_resource type="Script" uid="uid://doyrdmj1640yd" path="res://Scripts/FSM/States/idle_state.gd" id="3_dd465"]
+[ext_resource type="Script" uid="uid://bfo8h5qd4huil" path="res://Scripts/FSM/States/move_state.gd" id="4_lhvu3"]
+[ext_resource type="Script" uid="uid://fo7w120wcvks" path="res://Scripts/FSM/States/Dash_state.gd" id="7_4sjlk"]
+[ext_resource type="Script" uid="uid://b5j3qum4wyykx" path="res://Scripts/FSM/States/jump_state.gd" id="8_qp52p"]
+[ext_resource type="Script" uid="uid://dgxro6cbxb6fl" path="res://Main Character/dash_ghost.gd" id="9_xevwv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhvu3"]
+size = Vector2(25, 27)
+
+[sub_resource type="Animation" id="Animation_4sjlk"]
+resource_name = "Idle"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_dd465")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.10000001, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_qp52p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_dd465")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_6ct3r"]
+resource_name = "Run"
+length = 0.7
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_lhvu3")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1kp85"]
+_data = {
+&"Idle": SubResource("Animation_4sjlk"),
+&"RESET": SubResource("Animation_qp52p"),
+&"Run": SubResource("Animation_6ct3r")
+}
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1830181764]
+script = ExtResource("1_lhvu3")
+SPEED = 160.0
+dash_cooldown = 1.5
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=985726833]
+texture = ExtResource("1_dd465")
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=487147574]
+shape = SubResource("RectangleShape2D_lhvu3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1843334776]
+root_node = NodePath("../CollisionShape2D")
+libraries/ = SubResource("AnimationLibrary_1kp85")
+autoplay = &"Idle"
+
+[node name="StateMachine" type="Node" parent="." unique_id=1327783479 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_ij6vw")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://2e4060glgbkk"
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1302386245 node_paths=PackedStringArray("move_state", "dash_state", "jump_state", "_animation")]
+script = ExtResource("3_dd465")
+move_state = NodePath("../Move")
+dash_state = NodePath("../Dash")
+jump_state = NodePath("../Jump")
+_animation = NodePath("../../AnimationPlayer")
+metadata/_custom_type_script = "uid://tctxwsqswndt"
+
+[node name="Move" type="Node" parent="StateMachine" unique_id=1817529868 node_paths=PackedStringArray("idle_state", "dash_state", "jump_state", "_animation")]
+script = ExtResource("4_lhvu3")
+idle_state = NodePath("../Idle")
+dash_state = NodePath("../Dash")
+jump_state = NodePath("../Jump")
+_animation = NodePath("../../AnimationPlayer")
+metadata/_custom_type_script = "uid://tctxwsqswndt"
+
+[node name="Dash" type="Node" parent="StateMachine" unique_id=54283503 node_paths=PackedStringArray("idle_state", "move_state")]
+script = ExtResource("7_4sjlk")
+idle_state = NodePath("../Idle")
+move_state = NodePath("../Move")
+metadata/_custom_type_script = "uid://tctxwsqswndt"
+
+[node name="Jump" type="Node" parent="StateMachine" unique_id=1775104458 node_paths=PackedStringArray("idle_state", "move_state", "dash_state")]
+script = ExtResource("8_qp52p")
+idle_state = NodePath("../Idle")
+move_state = NodePath("../Move")
+dash_state = NodePath("../Dash")
+metadata/_custom_type_script = "uid://tctxwsqswndt"
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1425595176]
+script = ExtResource("9_xevwv")
