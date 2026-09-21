@@ -5,9 +5,7 @@
 [ext_resource type="Script" uid="uid://mfv8potre2gi" path="res://static_room_camera.gd" id="3_oonmu"]
 [ext_resource type="Texture2D" uid="uid://b3hvy6ot236dn" path="res://Parallax/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="4_tkbv5"]
 [ext_resource type="PackedScene" uid="uid://bys7gueg1q52s" path="res://portal.tscn" id="5_im1ts"]
-[ext_resource type="PackedScene" uid="uid://bd6nmx4ctfolc" path="res://Scenes/blocos/bloco_numeral.tscn" id="6_oonmu"]
-[ext_resource type="PackedScene" uid="uid://d0ti3v0wolelo" path="res://bloco_sinal.tscn" id="7_tkbv5"]
-[ext_resource type="Script" uid="uid://bo0kn62dkfvj7" path="res://Scenes/Fases/gerenciador_fase.gd" id="8_ll763"]
+[ext_resource type="PackedScene" uid="uid://x4lb13qqme1u" path="res://Scenes/Fases/gerenciador_fase.tscn" id="6_oonmu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0e48y"]
 texture = ExtResource("4_tkbv5")
@@ -145,9 +143,4 @@ position = Vector2(503, 157)
 [node name="Marker2D7" type="Marker2D" parent="Spawnpoints" unique_id=1996314087]
 position = Vector2(608, 155)
 
-[node name="GerenciadorFase" type="Node2D" parent="." unique_id=506916306 node_paths=PackedStringArray("grupo_spawn_points")]
-script = ExtResource("8_ll763")
-cena_bloco_numeral = ExtResource("6_oonmu")
-cena_bloco_sinal = ExtResource("7_tkbv5")
-grupo_spawn_points = NodePath("../Spawnpoints")
-nivel_dificuldade = 3
+[node name="GerenciadorFase" parent="." unique_id=54439541 instance=ExtResource("6_oonmu")]

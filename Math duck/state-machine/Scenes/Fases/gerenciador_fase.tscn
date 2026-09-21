@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://x4lb13qqme1u"]
+
+[ext_resource type="Script" uid="uid://bo0kn62dkfvj7" path="res://Scenes/Fases/gerenciador_fase.gd" id="1_lrh1p"]
+[ext_resource type="PackedScene" uid="uid://bd6nmx4ctfolc" path="res://Scenes/blocos/bloco_numeral.tscn" id="2_7dud8"]
+[ext_resource type="PackedScene" uid="uid://d0ti3v0wolelo" path="res://bloco_sinal.tscn" id="3_5ayx4"]
+
+[node name="GerenciadorFase" type="Node2D" unique_id=54439541 node_paths=PackedStringArray("grupo_spawn_points")]
+script = ExtResource("1_lrh1p")
+cena_bloco_numeral = ExtResource("2_7dud8")
+cena_bloco_sinal = ExtResource("3_5ayx4")
+grupo_spawn_points = NodePath("")
+nivel_dificuldade = 3
