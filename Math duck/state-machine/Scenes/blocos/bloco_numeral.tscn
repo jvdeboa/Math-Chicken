@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bd6nmx4ctfolc"]
+
+[ext_resource type="Script" uid="uid://bu6ytlag3n5uh" path="res://Scenes/blocos/bloco_numeral.gd" id="1_bi8ro"]
+[ext_resource type="Texture2D" uid="uid://22y1v5ao34cf" path="res://sprites/bloco_numeral.png" id="2_4o6uj"]
+[ext_resource type="FontFile" uid="uid://d21e6txifcm8g" path="res://fonts/kenney-pixel.otf" id="3_4o6uj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bcy3"]
+size = Vector2(32, 32)
+
+[node name="BlocoNumeral" type="Area2D" unique_id=1160762101]
+scale = Vector2(0.723518, 0.7199991)
+script = ExtResource("1_bi8ro")
+metadata/_edit_horizontal_guides_ = [12.0]
+metadata/_edit_vertical_guides_ = [-12.0]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1261905264]
+texture = ExtResource("2_4o6uj")
+
+[node name="Label" type="Label" parent="." unique_id=959477048]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_4o6uj")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1833030309]
+shape = SubResource("RectangleShape2D_2bcy3")
