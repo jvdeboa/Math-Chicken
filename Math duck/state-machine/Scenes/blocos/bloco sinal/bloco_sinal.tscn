@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d0ti3v0wolelo"]
 
-[ext_resource type="Script" uid="uid://8x65n1qqlhhv" path="res://bloco_sinal.gd" id="1_qi3wu"]
+[ext_resource type="Script" uid="uid://8x65n1qqlhhv" path="res://Scenes/blocos/bloco sinal/bloco_sinal.gd" id="1_qi3wu"]
 [ext_resource type="Texture2D" uid="uid://duljruos5o0wr" path="res://sprites/bloco_sinal.png" id="2_g1bva"]
 [ext_resource type="FontFile" uid="uid://d21e6txifcm8g" path="res://fonts/kenney-pixel.otf" id="3_uxo67"]
 

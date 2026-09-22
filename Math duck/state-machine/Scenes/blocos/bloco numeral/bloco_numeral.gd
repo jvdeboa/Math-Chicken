@@ -16,6 +16,6 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
-		# Grita para o Gerenciador avisando qual valor foi coletado!
-		get_tree().call_group("gerenciador", "registrar_coleta", valor_do_bloco)
-		queue_free() # Destrói o bloco
+		# Grita para o Gerenciador: o valor, a posição onde estava, e quem o apanhou!
+		get_tree().call_group("gerenciador", "registrar_coleta", valor_do_bloco, global_position, body)
+		queue_free()

@@ -16,5 +16,6 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
-		get_tree().call_group("gerenciador", "registrar_coleta", valor_do_bloco)
+		# Grita para o Gerenciador passando as 3 informações!
+		get_tree().call_group("gerenciador", "registrar_coleta", valor_do_bloco, global_position, body)
 		queue_free()

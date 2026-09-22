@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b3hvy6ot236dn" path="res://Parallax/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="4_tkbv5"]
 [ext_resource type="PackedScene" uid="uid://bys7gueg1q52s" path="res://portal.tscn" id="5_im1ts"]
 [ext_resource type="PackedScene" uid="uid://x4lb13qqme1u" path="res://Scenes/Fases/gerenciador_fase.tscn" id="6_oonmu"]
+[ext_resource type="FontFile" uid="uid://d21e6txifcm8g" path="res://fonts/kenney-pixel.otf" id="7_tkbv5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0e48y"]
 texture = ExtResource("4_tkbv5")
@@ -95,6 +96,7 @@ position = Vector2(439, 115)
 
 [node name="Portal" parent="Node2D" unique_id=410026563 instance=ExtResource("5_im1ts")]
 position = Vector2(127, 51)
+target_scene = "uid://btdyoevv7s7og"
 ativo = false
 
 [node name="CharacterBody2D" parent="." unique_id=1830181764 instance=ExtResource("2_im1ts")]
@@ -117,30 +119,45 @@ tile_set = SubResource("TileSet_q1wjc")
 [node name="Spawnpoints" type="Node2D" parent="." unique_id=1525152513]
 
 [node name="Marker2D" type="Marker2D" parent="Spawnpoints" unique_id=493307329]
-position = Vector2(432, 158)
+position = Vector2(459, 87)
 
 [node name="Marker2D9" type="Marker2D" parent="Spawnpoints" unique_id=1962863816]
-position = Vector2(133, 101)
+position = Vector2(101, 87)
 
 [node name="Marker2D8" type="Marker2D" parent="Spawnpoints" unique_id=744137873]
-position = Vector2(393, 110)
+position = Vector2(386, 109)
 
 [node name="Marker2D2" type="Marker2D" parent="Spawnpoints" unique_id=1693862280]
-position = Vector2(176, 64)
+position = Vector2(183, 60)
 
 [node name="Marker2D3" type="Marker2D" parent="Spawnpoints" unique_id=1967713134]
 position = Vector2(257, 74)
 
 [node name="Marker2D4" type="Marker2D" parent="Spawnpoints" unique_id=718062316]
-position = Vector2(335, 113)
+position = Vector2(331, 87)
 
 [node name="Marker2D5" type="Marker2D" parent="Spawnpoints" unique_id=902503260]
-position = Vector2(71, 87)
+position = Vector2(45, 87)
 
 [node name="Marker2D6" type="Marker2D" parent="Spawnpoints" unique_id=2050490843]
-position = Vector2(503, 157)
+position = Vector2(518, 98)
 
 [node name="Marker2D7" type="Marker2D" parent="Spawnpoints" unique_id=1996314087]
-position = Vector2(608, 155)
+position = Vector2(592, 98)
 
-[node name="GerenciadorFase" parent="." unique_id=54439541 instance=ExtResource("6_oonmu")]
+[node name="GerenciadorFase" parent="." unique_id=54439541 node_paths=PackedStringArray("grupo_spawn_points", "texto_hud") instance=ExtResource("6_oonmu")]
+grupo_spawn_points = NodePath("../Spawnpoints")
+nivel_dificuldade = 1
+texto_hud = NodePath("HUD/TextoObjetivo")
+
+[node name="HUD" type="CanvasLayer" parent="GerenciadorFase" unique_id=1859925547]
+
+[node name="TextoObjetivo" type="Label" parent="GerenciadorFase/HUD" unique_id=1942270805]
+offset_left = 244.0
+offset_top = 43.0
+offset_right = 284.0
+offset_bottom = 98.0
+theme_override_fonts/font = ExtResource("7_tkbv5")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
