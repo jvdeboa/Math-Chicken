@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b3hvy6ot236dn" path="res://Parallax/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="4_tkbv5"]
 [ext_resource type="PackedScene" uid="uid://bys7gueg1q52s" path="res://portal.tscn" id="5_im1ts"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0e48y"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_im1ts"]
 texture = ExtResource("4_tkbv5")
 3:1/0 = 0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -85,15 +85,15 @@ texture = ExtResource("4_tkbv5")
 
 [sub_resource type="TileSet" id="TileSet_q1wjc"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_0e48y")
+sources/0 = SubResource("TileSetAtlasSource_im1ts")
 
 [node name="Node2D" type="Node2D" unique_id=2026429598]
 
+[node name="Portal" parent="." unique_id=410026563 instance=ExtResource("5_im1ts")]
+position = Vector2(566, 166)
+
 [node name="Node2D" parent="." unique_id=864751463 instance=ExtResource("1_bcyli")]
 position = Vector2(439, 115)
-
-[node name="Portal" parent="Node2D" unique_id=410026563 instance=ExtResource("5_im1ts")]
-position = Vector2(127, 51)
 
 [node name="CharacterBody2D" parent="." unique_id=1830181764 instance=ExtResource("2_im1ts")]
 position = Vector2(36, 163)
