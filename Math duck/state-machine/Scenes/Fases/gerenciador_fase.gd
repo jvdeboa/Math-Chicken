@@ -4,9 +4,13 @@ extends Node
 @export var cena_bloco_sinal: PackedScene
 @export var grupo_spawn_points: Node2D
 @export var nivel_dificuldade: int = 1
-@export var texto_hud: Label # <--- ARRASTE O "TextoObjetivo" PARA AQUI NO INSPETOR!
+@export var texto_hud: Label
+@export var texto_tempo: Label
+@export var tempo_maximo: float = 30.0
+@export var efeito_confete: CPUParticles2D
 
 var resultado_esperado: int = 0
+var tempo_restante: float = 0.0
 var blocos_coletados: Array[String] = []
 var equacao_correta: Array[String] = [] # Guarda a ordem exata que o jogador tem de apanhar
 var quantidade_necessaria: int = 3
@@ -15,8 +19,32 @@ var jogo_terminou: bool = false
 
 func _ready() -> void:
 	add_to_group("gerenciador")
+	tempo_restante = tempo_maximo
 	gerar_nova_equacao()
 	atualizar_hud()
+	
+func _process(delta: float) -> void:
+	# Se o jogo já acabou (vitória ou morte), o relógio pára
+	if jogo_terminou: return
+	
+	if tempo_restante > 0:
+		tempo_restante -= delta # Subtrai o tempo que passou desde a última frame
+		
+		if texto_tempo:
+			# Magia do texto: "%.2f" força o número a ter sempre 2 casas decimais (ex: 10.23)
+			texto_tempo.text = "%.2f" % tempo_restante 
+	else:
+		# ACABOU O TEMPO!
+		tempo_restante = 0.0
+		if texto_tempo: texto_tempo.text = "0.00"
+		
+		jogo_terminou = true
+		print("Tempo Esgotado!")
+		
+		# Encontra a galinha no mapa através do grupo que criámos no Passo 1
+		var jogador = get_tree().get_first_node_in_group("jogador")
+		if jogador:
+			matar_jogador(jogador)
 
 func gerar_nova_equacao() -> void:
 	var quantidade_numeros: int = 2
@@ -140,6 +168,10 @@ func registrar_coleta(valor_coletado: String, pos_bloco: Vector2, jogador: Chara
 		
 		if avaliar_expressao(blocos_coletados) == float(resultado_esperado):
 			print("VITÓRIA!")
+			if efeito_confete:
+				efeito_confete.global_position = jogador.global_position
+				efeito_confete.emitting = true
+				
 			get_tree().call_group("portal", "activate")
 			limpar_blocos_restantes()
 			jogador.set_physics_process(true)
