@@ -13,6 +13,7 @@ extends Area2D
 @onready var cadeado: Sprite2D = $cadeado
 
 func _ready() -> void:
+	add_to_group("portal")
 	body_entered.connect(_on_body_entered)
 	_update_portal_state()
 
@@ -31,7 +32,7 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	if ativo and body is CharacterBody2D:
 		if target_scene != "":
-			get_tree().change_scene_to_file(target_scene)
+			get_tree().call_deferred("change_scene_to_file", target_scene)
 		else:
 			push_warning("Nenhuma cena de destino configurada no Portal")
 
