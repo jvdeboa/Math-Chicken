@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cugfchhgemlqr"]
+
+[ext_resource type="Script" uid="uid://gl8ed5il2pfb" path="res://menu_game_over.gd" id="1_qpg8w"]
+[ext_resource type="FontFile" uid="uid://d21e6txifcm8g" path="res://fonts/kenney-pixel.otf" id="2_jfflx"]
+
+[node name="MenuGameOver" type="CanvasLayer" unique_id=923784408]
+process_mode = 3
+script = ExtResource("1_qpg8w")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=474441329]
+offset_left = 276.0
+offset_top = 111.0
+offset_right = 368.0
+offset_bottom = 158.0
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1541660926]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_jfflx")
+theme_override_font_sizes/font_size = 32
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="BotaoReiniciar" type="Button" parent="VBoxContainer" unique_id=1783985907]
+layout_mode = 2
+text = "Reiniciar"
+
+[node name="BotaoMenu" type="Button" parent="VBoxContainer" unique_id=76022372]
+layout_mode = 2
+text = "Menu Principal"
+
+[connection signal="pressed" from="VBoxContainer/BotaoReiniciar" to="." method="_on_botao_reiniciar_pressed"]
+[connection signal="pressed" from="VBoxContainer/BotaoMenu" to="." method="_on_botao_menu_pressed"]

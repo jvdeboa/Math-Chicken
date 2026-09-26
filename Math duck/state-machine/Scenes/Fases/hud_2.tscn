@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://b7ass5yp5ikpy"]
+
+[ext_resource type="FontFile" uid="uid://d21e6txifcm8g" path="res://fonts/kenney-pixel.otf" id="1_5kkof"]
+[ext_resource type="Script" uid="uid://nstuamixmucg" path="res://Scenes/Fases/hud_2.gd" id="1_xkykv"]
+[ext_resource type="Texture2D" uid="uid://dpo6wi32uodbs" path="res://sprites/pixel-heart-2779422_1280.png" id="3_2a7ee"]
+
+[node name="HUD2" type="CanvasLayer" unique_id=1334612400 groups=["hud_vidas"]]
+script = ExtResource("1_xkykv")
+
+[node name="TextoObjetivo" type="Label" parent="." unique_id=1720904562]
+offset_left = 269.0
+offset_top = 20.0
+offset_right = 309.0
+offset_bottom = 75.0
+theme_override_fonts/font = ExtResource("1_5kkof")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=32620246 groups=["hud_vidas"]]
+offset_left = 21.0
+offset_top = 27.0
+offset_right = 149.0
+offset_bottom = 67.0
+
+[node name="Coracao1" type="TextureRect" parent="HBoxContainer" unique_id=1104692936]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("3_2a7ee")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Coracao2" type="TextureRect" parent="HBoxContainer" unique_id=1176191]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("3_2a7ee")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Coracao3" type="TextureRect" parent="HBoxContainer" unique_id=1346403480]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("3_2a7ee")
+expand_mode = 1
+stretch_mode = 5

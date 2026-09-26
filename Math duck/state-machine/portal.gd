@@ -30,7 +30,8 @@ func _update_portal_state() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	
-	if ativo and body is CharacterBody2D:
+	# O SEGREDO ESTÁ AQUI: Agora só o grupo "jogador" consegue usar o portal!
+	if ativo and body.is_in_group("jogador"):
 		if target_scene != "":
 			get_tree().call_deferred("change_scene_to_file", target_scene)
 		else:

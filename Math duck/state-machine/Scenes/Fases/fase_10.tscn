@@ -4,8 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://bys7gueg1q52s" path="res://portal.tscn" id="2_eogqd"]
 [ext_resource type="Texture2D" uid="uid://b3hvy6ot236dn" path="res://Parallax/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="3_e6kjv"]
 [ext_resource type="PackedScene" uid="uid://c55n8k331p5do" path="res://Main Character/character_body_2d.tscn" id="4_8jjym"]
-[ext_resource type="PackedScene" uid="uid://x4lb13qqme1u" path="res://Scenes/Fases/gerenciador_fase.tscn" id="5_pai1q"]
-[ext_resource type="FontFile" uid="uid://d21e6txifcm8g" path="res://fonts/kenney-pixel.otf" id="6_4b8if"]
+[ext_resource type="PackedScene" uid="uid://x4lb13qqme1u" path="res://gerenciador/gerenciador_fase.tscn" id="5_pai1q"]
+[ext_resource type="PackedScene" uid="uid://b7ass5yp5ikpy" path="res://Scenes/Fases/hud_2.tscn" id="6_c0hhu"]
+[ext_resource type="PackedScene" uid="uid://godhv45n7v64" path="res://inimigo.tscn" id="7_g8qcx"]
+[ext_resource type="PackedScene" uid="uid://d0pcbw1rgma0s" path="res://inimigo_estatico.tscn" id="8_mto5w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8jjym"]
 texture = ExtResource("3_e6kjv")
@@ -141,18 +143,6 @@ nivel_dificuldade = 1
 texto_hud = NodePath("HUD2/TextoObjetivo")
 efeito_confete = NodePath("EfeitoConfete")
 
-[node name="HUD2" type="CanvasLayer" parent="GerenciadorFase" unique_id=861805433]
-
-[node name="TextoObjetivo" type="Label" parent="GerenciadorFase/HUD2" unique_id=1558799724]
-offset_left = 269.0
-offset_top = 20.0
-offset_right = 309.0
-offset_bottom = 75.0
-theme_override_fonts/font = ExtResource("6_4b8if")
-theme_override_font_sizes/font_size = 40
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
 [node name="EfeitoConfete" type="CPUParticles2D" parent="GerenciadorFase" unique_id=1803770994]
 emitting = false
 amount = 50
@@ -165,3 +155,35 @@ initial_velocity_max = 400.0
 scale_amount_min = 4.0
 scale_amount_max = 5.0
 color_initial_ramp = SubResource("Gradient_6kw2o")
+
+[node name="HUD2" parent="GerenciadorFase" unique_id=1334612400 instance=ExtResource("6_c0hhu")]
+
+[node name="HBoxContainer" parent="GerenciadorFase/HUD2" index="1" unique_id=32620246]
+offset_top = 12.0
+offset_bottom = 52.0
+
+[node name="Inimigo" parent="GerenciadorFase" unique_id=1490096557 instance=ExtResource("7_g8qcx")]
+position = Vector2(289, 71)
+
+[node name="Inimigo2" parent="GerenciadorFase" unique_id=739766541 instance=ExtResource("7_g8qcx")]
+position = Vector2(488, 151)
+
+[node name="Inimigo3" parent="GerenciadorFase" unique_id=298409244 instance=ExtResource("7_g8qcx")]
+position = Vector2(363, 295)
+
+[node name="InimigoEstatico" parent="." unique_id=2135955038 instance=ExtResource("8_mto5w")]
+position = Vector2(150, 296)
+
+[node name="InimigoEstatico2" parent="." unique_id=1687765023 instance=ExtResource("8_mto5w")]
+position = Vector2(170, 296)
+
+[node name="InimigoEstatico3" parent="." unique_id=39588023 instance=ExtResource("8_mto5w")]
+position = Vector2(190, 296)
+
+[node name="InimigoEstatico4" parent="." unique_id=254900835 instance=ExtResource("8_mto5w")]
+position = Vector2(210, 296)
+
+[node name="InimigoEstatico5" parent="." unique_id=969385400 instance=ExtResource("8_mto5w")]
+position = Vector2(230, 296)
+
+[editable path="GerenciadorFase/HUD2"]

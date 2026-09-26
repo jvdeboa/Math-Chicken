@@ -28,10 +28,9 @@ func _process(delta: float) -> void:
 	if jogo_terminou: return
 	
 	if tempo_restante > 0:
-		tempo_restante -= delta # Subtrai o tempo que passou desde a última frame
+		tempo_restante -= delta 
 		
 		if texto_tempo:
-			# Magia do texto: "%.2f" força o número a ter sempre 2 casas decimais (ex: 10.23)
 			texto_tempo.text = "%.2f" % tempo_restante 
 	else:
 		# ACABOU O TEMPO!
@@ -39,12 +38,13 @@ func _process(delta: float) -> void:
 		if texto_tempo: texto_tempo.text = "0.00"
 		
 		jogo_terminou = true
-		print("Tempo Esgotado!")
+		print("Tempo Esgotado! Morte instantânea!")
 		
-		# Encontra a galinha no mapa através do grupo que criámos no Passo 1
 		var jogador = get_tree().get_first_node_in_group("jogador")
 		if jogador:
-			matar_jogador(jogador)
+			# Passamos a posição dela e, como quantidade de dano, passamos o total de vidas que ela tem!
+			if jogador.has_method("tomar_dano"):
+				jogador.tomar_dano(jogador.global_position.x, jogador.vidas)
 
 func gerar_nova_equacao() -> void:
 	var quantidade_numeros: int = 2
@@ -267,27 +267,25 @@ func animar_bloco_para_hud(valor: String, pos_inicial: Vector2) -> void:
 	tween.tween_callback(lbl_voando.queue_free)
 
 func matar_jogador(jogador: CharacterBody2D) -> void:
-	# 1. Congela o jogador
-	jogador.set_physics_process(false)
-	
-	# 2. Desliga a colisão para ele cair pelo chão afora
-	if jogador.has_node("CollisionShape2D"):
-		jogador.get_node("CollisionShape2D").set_deferred("disabled", true)
+	if jogador.has_method("tomar_dano"):
+		# MUDANÇA AQUI: Passamos a posição, 1 de dano, e TRUE para teletransportar!
+		jogador.tomar_dano(jogador.global_position.x - 10, 1, true) 
 		
-	# 3. Animação de Morte Épica (Pulo + Giro + Queda)
-	var tween = create_tween()
-	var pos = jogador.position
-	
-	# PARTE A: Dá um pulinho para cima E começa a girar (em paralelo)
-	tween.tween_property(jogador, "position", pos + Vector2(0, -80), 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-	tween.parallel().tween_property(jogador, "rotation_degrees", 360.0, 0.3)
-	
-	# PARTE B: Cai para o infinito E gira muito mais rápido (em cadeia, após o pulo)
-	tween.chain().tween_property(jogador, "position", pos + Vector2(0, 800), 1.0).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
-	tween.parallel().tween_property(jogador, "rotation_degrees", 360.0 * 5, 1.0)
-	
-	# PARTE C: Quando a queda termina, reinicia a fase
-	tween.chain().tween_callback(get_tree().reload_current_scene)
+		if jogador.vidas > 0:
+			print("Perdeu uma vida pela matemática! Tente novamente.")
+			
+			blocos_coletados.clear()
+			limpar_blocos_restantes()
+			
+			await get_tree().create_timer(0.5).timeout
+			
+			jogo_terminou = false
+			
+			gerar_nova_equacao()
+			atualizar_hud()
+			
+		else:
+			print("Game Over de Matemática!")
 
 func limpar_blocos_restantes() -> void:
 	# Pega todos os blocos que sobraram no mapa

@@ -4,8 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://bys7gueg1q52s" path="res://portal.tscn" id="2_lo44a"]
 [ext_resource type="Texture2D" uid="uid://b3hvy6ot236dn" path="res://Parallax/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="3_kq2vo"]
 [ext_resource type="PackedScene" uid="uid://c55n8k331p5do" path="res://Main Character/character_body_2d.tscn" id="4_0ypyg"]
-[ext_resource type="PackedScene" uid="uid://x4lb13qqme1u" path="res://Scenes/Fases/gerenciador_fase.tscn" id="5_34dbj"]
-[ext_resource type="FontFile" uid="uid://d21e6txifcm8g" path="res://fonts/kenney-pixel.otf" id="6_yanb3"]
+[ext_resource type="Script" uid="uid://bo0kn62dkfvj7" path="res://gerenciador/gerenciador_fase.gd" id="5_g0qdl"]
+[ext_resource type="PackedScene" uid="uid://bd6nmx4ctfolc" path="res://Scenes/blocos/bloco numeral/bloco_numeral.tscn" id="6_8valf"]
+[ext_resource type="PackedScene" uid="uid://b7ass5yp5ikpy" path="res://Scenes/Fases/hud_2.tscn" id="6_xuthy"]
+[ext_resource type="PackedScene" uid="uid://d0ti3v0wolelo" path="res://Scenes/blocos/bloco sinal/bloco_sinal.tscn" id="7_5dna6"]
+[ext_resource type="PackedScene" uid="uid://godhv45n7v64" path="res://inimigo.tscn" id="9_8valf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ypyg"]
 texture = ExtResource("3_kq2vo")
@@ -88,7 +91,7 @@ texture = ExtResource("3_kq2vo")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_0ypyg")
 
-[sub_resource type="Gradient" id="Gradient_g37hy"]
+[sub_resource type="Gradient" id="Gradient_sqbga"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0.08415841, 0.26732674, 0.46534654, 0.6732673, 0.84653467, 1)
 colors = PackedColorArray(1, 0, 0, 1, 0.047880795, 0.9564356, 0.10850761, 1, 0.93125, 0.7816036, 0.080886595, 1, 0.99375, 0.21638972, 0.80360377, 1, 0.0813548, 0.894563, 0.9636574, 1, 0.16124165, 0.26085907, 1, 1)
@@ -135,32 +138,35 @@ position = Vector2(42, 42)
 [node name="Marker2D5" type="Marker2D" parent="Spawnpoints" unique_id=1732252037]
 position = Vector2(29, 108)
 
-[node name="GerenciadorFase" parent="." unique_id=54439541 node_paths=PackedStringArray("grupo_spawn_points", "texto_hud", "efeito_confete") instance=ExtResource("5_34dbj")]
-position = Vector2(-1, -24)
+[node name="GerenciadorFase" type="Node2D" parent="." unique_id=54439541 node_paths=PackedStringArray("grupo_spawn_points", "texto_hud", "texto_tempo", "efeito_confete")]
+script = ExtResource("5_g0qdl")
+cena_bloco_numeral = ExtResource("6_8valf")
+cena_bloco_sinal = ExtResource("7_5dna6")
 grupo_spawn_points = NodePath("../Spawnpoints")
-nivel_dificuldade = 1
+nivel_dificuldade = 3
 texto_hud = NodePath("HUD2/TextoObjetivo")
-efeito_confete = NodePath("EfeitoConfete")
+texto_tempo = NodePath("HUD2/TextoObjetivo")
+efeito_confete = NodePath("HUD2/EfeitoConfete")
 
-[node name="TextoTempo" parent="GerenciadorFase/HUD" parent_id_path=PackedInt32Array(54439541, 1691194926) index="0" unique_id=975742819]
-offset_left = 19.0
-offset_top = 2.9999995
-offset_right = 59.0
-offset_bottom = 26.0
+[node name="HUD2" parent="GerenciadorFase" unique_id=1334612400 instance=ExtResource("6_xuthy")]
 
-[node name="HUD2" type="CanvasLayer" parent="GerenciadorFase" unique_id=51050538]
+[node name="HBoxContainer" parent="GerenciadorFase/HUD2" index="1" unique_id=32620246]
+offset_top = 7.0
+offset_bottom = 47.0
 
-[node name="TextoObjetivo" type="Label" parent="GerenciadorFase/HUD2" unique_id=461897135]
-offset_left = 269.0
-offset_top = 20.0
-offset_right = 309.0
-offset_bottom = 75.0
-theme_override_fonts/font = ExtResource("6_yanb3")
-theme_override_font_sizes/font_size = 40
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
+[node name="Inimigo" parent="GerenciadorFase/HUD2/HBoxContainer" index="3" unique_id=1490096557 instance=ExtResource("9_8valf")]
+position = Vector2(10, 49)
 
-[node name="EfeitoConfete" type="CPUParticles2D" parent="GerenciadorFase" unique_id=739061433]
+[node name="Inimigo2" parent="GerenciadorFase/HUD2/HBoxContainer" index="4" unique_id=1950768192 instance=ExtResource("9_8valf")]
+position = Vector2(588, 129)
+
+[node name="Inimigo3" parent="GerenciadorFase/HUD2/HBoxContainer" index="5" unique_id=1612743059 instance=ExtResource("9_8valf")]
+position = Vector2(467, 210)
+
+[node name="Inimigo4" parent="GerenciadorFase/HUD2/HBoxContainer" index="6" unique_id=430924448 instance=ExtResource("9_8valf")]
+position = Vector2(469, 289)
+
+[node name="EfeitoConfete" type="CPUParticles2D" parent="GerenciadorFase/HUD2" unique_id=240637533]
 emitting = false
 amount = 50
 one_shot = true
@@ -171,6 +177,6 @@ initial_velocity_min = 300.0
 initial_velocity_max = 400.0
 scale_amount_min = 4.0
 scale_amount_max = 5.0
-color_initial_ramp = SubResource("Gradient_g37hy")
+color_initial_ramp = SubResource("Gradient_sqbga")
 
-[editable path="GerenciadorFase"]
+[editable path="GerenciadorFase/HUD2"]

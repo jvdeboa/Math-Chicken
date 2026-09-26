@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://godhv45n7v64"]
+
+[ext_resource type="Script" uid="uid://dypytikdmyqy" path="res://inimigo.gd" id="1_030df"]
+[ext_resource type="Texture2D" uid="uid://mab6cbnp8nrm" path="res://sprites/inimigo/Sprite-0004.png" id="2_0b8xr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0b8xr"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g45jm"]
+atlas = ExtResource("2_0b8xr")
+region = Rect2(0, 0, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enrbn"]
+atlas = ExtResource("2_0b8xr")
+region = Rect2(26, 0, 26, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g45jm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g45jm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enrbn")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g45jm"]
+size = Vector2(24, 20)
+
+[node name="Inimigo" type="CharacterBody2D" unique_id=1490096557]
+script = ExtResource("1_030df")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=681479806]
+shape = SubResource("RectangleShape2D_0b8xr")
+
+[node name="RayWall" type="RayCast2D" parent="." unique_id=1371720894]
+target_position = Vector2(20, 0)
+
+[node name="RayEdge" type="RayCast2D" parent="." unique_id=1368463521]
+position = Vector2(10, 0)
+target_position = Vector2(0, 20)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1454319164]
+sprite_frames = SubResource("SpriteFrames_g45jm")
+autoplay = "default"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1582149181]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1660499281]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_g45jm")
+debug_color = Color(0.70196074, 0.019168047, 0.07790091, 0.41960785)
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
