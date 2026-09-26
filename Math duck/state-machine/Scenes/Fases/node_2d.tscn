@@ -96,9 +96,6 @@ colors = PackedColorArray(1, 0, 0, 1, 0.047880795, 0.9564356, 0.10850761, 1, 0.9
 
 [node name="Node2D" type="Node2D" unique_id=2026429598]
 
-[node name="Portal" parent="." unique_id=410026563 instance=ExtResource("5_im1ts")]
-position = Vector2(566, 166)
-
 [node name="Node2D" parent="." unique_id=864751463 instance=ExtResource("1_bcyli")]
 position = Vector2(439, 115)
 
@@ -150,6 +147,7 @@ position = Vector2(592, 98)
 
 [node name="GerenciadorFase" parent="." unique_id=54439541 node_paths=PackedStringArray("grupo_spawn_points", "texto_hud", "efeito_confete") instance=ExtResource("6_oonmu")]
 grupo_spawn_points = NodePath("../Spawnpoints")
+nivel_dificuldade = 1
 texto_hud = NodePath("HUD2/TextoObjetivo")
 efeito_confete = NodePath("EfeitoConfete")
 
@@ -177,3 +175,8 @@ initial_velocity_max = 400.0
 scale_amount_min = 4.0
 scale_amount_max = 5.0
 color_initial_ramp = SubResource("Gradient_tkbv5")
+
+[node name="Portal" parent="." unique_id=410026563 instance=ExtResource("5_im1ts")]
+position = Vector2(598, 166)
+target_scene = "uid://b5wpo5tovj8pa"
+ativo = false
