@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://d018oh7rcugau" path="res://bg.tscn" id="1_6dsjy"]
 [ext_resource type="PackedScene" uid="uid://bys7gueg1q52s" path="res://portal.tscn" id="2_1lkm3"]
 [ext_resource type="Texture2D" uid="uid://b3hvy6ot236dn" path="res://Parallax/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="3_5io7x"]
+[ext_resource type="PackedScene" uid="uid://c55n8k331p5do" path="res://Main Character/character_body_2d.tscn" id="4_jbymy"]
+[ext_resource type="PackedScene" uid="uid://x4lb13qqme1u" path="res://Scenes/Fases/gerenciador_fase.tscn" id="5_gefyy"]
+[ext_resource type="FontFile" uid="uid://d21e6txifcm8g" path="res://fonts/kenney-pixel.otf" id="6_cs00v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jbymy"]
 texture = ExtResource("3_5io7x")
@@ -85,6 +88,11 @@ texture = ExtResource("3_5io7x")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_jbymy")
 
+[sub_resource type="Gradient" id="Gradient_tumiv"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.08415841, 0.26732674, 0.46534654, 0.6732673, 0.84653467, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.047880795, 0.9564356, 0.10850761, 1, 0.93125, 0.7816036, 0.080886595, 1, 0.99375, 0.21638972, 0.80360377, 1, 0.0813548, 0.894563, 0.9636574, 1, 0.16124165, 0.26085907, 1, 1)
+
 [node name="Node2D" type="Node2D" unique_id=361721939]
 
 [node name="Node2D" parent="." unique_id=1953458418 instance=ExtResource("1_6dsjy")]
@@ -97,3 +105,56 @@ tile_set = SubResource("TileSet_gefyy")
 
 [node name="Portal" parent="." unique_id=410026563 instance=ExtResource("2_1lkm3")]
 position = Vector2(596, 166)
+target_scene = "uid://dxr14x5urbe5q"
+ativo = false
+
+[node name="CharacterBody2D" parent="." unique_id=1830181764 instance=ExtResource("4_jbymy")]
+position = Vector2(36, 163)
+
+[node name="Spawnpoints" type="Node2D" parent="." unique_id=544001388]
+
+[node name="Marker2D9" type="Marker2D" parent="Spawnpoints" unique_id=1075213133]
+position = Vector2(284, 115)
+
+[node name="Marker2D2" type="Marker2D" parent="Spawnpoints" unique_id=799181059]
+position = Vector2(522, 115)
+
+[node name="Marker2D3" type="Marker2D" parent="Spawnpoints" unique_id=1062821995]
+position = Vector2(595, 95)
+
+[node name="Marker2D4" type="Marker2D" parent="Spawnpoints" unique_id=1282424989]
+position = Vector2(86, 91)
+
+[node name="Marker2D5" type="Marker2D" parent="Spawnpoints" unique_id=478000978]
+position = Vector2(35, 97)
+
+[node name="GerenciadorFase" parent="." unique_id=54439541 node_paths=PackedStringArray("grupo_spawn_points", "texto_hud", "efeito_confete") instance=ExtResource("5_gefyy")]
+grupo_spawn_points = NodePath("../Spawnpoints")
+nivel_dificuldade = 1
+texto_hud = NodePath("HUD2/TextoObjetivo")
+efeito_confete = NodePath("EfeitoConfete")
+
+[node name="HUD2" type="CanvasLayer" parent="GerenciadorFase" unique_id=1428019179]
+
+[node name="TextoObjetivo" type="Label" parent="GerenciadorFase/HUD2" unique_id=1618081958]
+offset_left = 269.0
+offset_top = 20.0
+offset_right = 309.0
+offset_bottom = 75.0
+theme_override_fonts/font = ExtResource("6_cs00v")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="EfeitoConfete" type="CPUParticles2D" parent="GerenciadorFase" unique_id=2063636437]
+emitting = false
+amount = 50
+one_shot = true
+explosiveness = 0.9
+direction = Vector2(1, -1)
+spread = 67.0
+initial_velocity_min = 300.0
+initial_velocity_max = 400.0
+scale_amount_min = 4.0
+scale_amount_max = 5.0
+color_initial_ramp = SubResource("Gradient_tumiv")
