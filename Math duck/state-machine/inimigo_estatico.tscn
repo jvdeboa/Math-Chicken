@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://d0pcbw1rgma0s"]
+
+[ext_resource type="Script" uid="uid://dtut3t1u60yks" path="res://inimigo_estatico.gd" id="1_n2lkb"]
+[ext_resource type="Texture2D" uid="uid://mab6cbnp8nrm" path="res://sprites/inimigo/Sprite-0004.png" id="2_mswum"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mswum"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jotdp"]
+atlas = ExtResource("2_mswum")
+region = Rect2(0, 0, 26, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d75wx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jotdp")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="InimigoEstatico" type="Area2D" unique_id=2135955038]
+script = ExtResource("1_n2lkb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=514223501]
+shape = SubResource("RectangleShape2D_mswum")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=475642588]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=279427747]
+sprite_frames = SubResource("SpriteFrames_d75wx")

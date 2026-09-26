@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://d018oh7rcugau" path="res://bg.tscn" id="2_gvbjw"]
 [ext_resource type="PackedScene" uid="uid://bys7gueg1q52s" path="res://portal.tscn" id="3_6eqgj"]
 [ext_resource type="PackedScene" uid="uid://c55n8k331p5do" path="res://Main Character/character_body_2d.tscn" id="4_rpdui"]
-[ext_resource type="PackedScene" uid="uid://x4lb13qqme1u" path="res://Scenes/Fases/gerenciador_fase.tscn" id="5_lpvw7"]
-[ext_resource type="FontFile" uid="uid://d21e6txifcm8g" path="res://fonts/kenney-pixel.otf" id="6_iel3g"]
+[ext_resource type="PackedScene" uid="uid://x4lb13qqme1u" path="res://gerenciador/gerenciador_fase.tscn" id="5_lpvw7"]
+[ext_resource type="PackedScene" uid="uid://b7ass5yp5ikpy" path="res://Scenes/Fases/hud_2.tscn" id="6_1kp7f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ors8i"]
 texture = ExtResource("1_2p1s0")
@@ -140,17 +140,11 @@ nivel_dificuldade = 1
 texto_hud = NodePath("HUD2/TextoObjetivo")
 efeito_confete = NodePath("EfeitoConfete")
 
-[node name="HUD2" type="CanvasLayer" parent="GerenciadorFase" unique_id=1306586154]
+[node name="HUD2" parent="GerenciadorFase" unique_id=1334612400 instance=ExtResource("6_1kp7f")]
 
-[node name="TextoObjetivo" type="Label" parent="GerenciadorFase/HUD2" unique_id=257648169]
-offset_left = 269.0
-offset_top = 20.0
-offset_right = 309.0
-offset_bottom = 75.0
-theme_override_fonts/font = ExtResource("6_iel3g")
-theme_override_font_sizes/font_size = 40
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
+[node name="HBoxContainer" parent="GerenciadorFase/HUD2" index="1" unique_id=32620246]
+offset_top = 17.0
+offset_bottom = 57.0
 
 [node name="EfeitoConfete" type="CPUParticles2D" parent="GerenciadorFase" unique_id=1681708190]
 emitting = false
@@ -164,3 +158,5 @@ initial_velocity_max = 400.0
 scale_amount_min = 4.0
 scale_amount_max = 5.0
 color_initial_ramp = SubResource("Gradient_t7ax8")
+
+[editable path="GerenciadorFase/HUD2"]

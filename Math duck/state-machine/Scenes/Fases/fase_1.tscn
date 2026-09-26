@@ -1,15 +1,15 @@
 [gd_scene format=4 uid="uid://btdyoevv7s7og"]
 
-[ext_resource type="PackedScene" uid="uid://d018oh7rcugau" path="res://bg.tscn" id="1_bcyli"]
-[ext_resource type="PackedScene" uid="uid://c55n8k331p5do" path="res://Main Character/character_body_2d.tscn" id="2_im1ts"]
-[ext_resource type="Script" uid="uid://mfv8potre2gi" path="res://static_room_camera.gd" id="3_oonmu"]
-[ext_resource type="Texture2D" uid="uid://b3hvy6ot236dn" path="res://Parallax/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="4_tkbv5"]
-[ext_resource type="PackedScene" uid="uid://bys7gueg1q52s" path="res://portal.tscn" id="5_im1ts"]
-[ext_resource type="PackedScene" uid="uid://x4lb13qqme1u" path="res://Scenes/Fases/gerenciador_fase.tscn" id="6_oonmu"]
-[ext_resource type="FontFile" uid="uid://d21e6txifcm8g" path="res://fonts/kenney-pixel.otf" id="7_tkbv5"]
+[ext_resource type="PackedScene" uid="uid://d018oh7rcugau" path="res://bg.tscn" id="1_2pt8r"]
+[ext_resource type="PackedScene" uid="uid://bys7gueg1q52s" path="res://portal.tscn" id="2_skiid"]
+[ext_resource type="PackedScene" uid="uid://c55n8k331p5do" path="res://Main Character/character_body_2d.tscn" id="3_h28r4"]
+[ext_resource type="Script" uid="uid://mfv8potre2gi" path="res://static_room_camera.gd" id="4_ksof3"]
+[ext_resource type="Texture2D" uid="uid://b3hvy6ot236dn" path="res://Parallax/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="5_sb4wv"]
+[ext_resource type="PackedScene" uid="uid://x4lb13qqme1u" path="res://gerenciador/gerenciador_fase.tscn" id="6_b2sct"]
+[ext_resource type="PackedScene" uid="uid://b7ass5yp5ikpy" path="res://Scenes/Fases/hud_2.tscn" id="7_2pt8r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_im1ts"]
-texture = ExtResource("4_tkbv5")
+texture = ExtResource("5_sb4wv")
 3:1/0 = 0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:1/0 = 0
@@ -96,14 +96,20 @@ colors = PackedColorArray(1, 0, 0, 1, 0.047880795, 0.9564356, 0.10850761, 1, 0.9
 
 [node name="Node2D" type="Node2D" unique_id=2026429598]
 
-[node name="Node2D" parent="." unique_id=864751463 instance=ExtResource("1_bcyli")]
+[node name="Node2D" parent="." unique_id=864751463 instance=ExtResource("1_2pt8r")]
 position = Vector2(439, 115)
+metadata/_edit_lock_ = true
 
-[node name="CharacterBody2D" parent="." unique_id=1830181764 instance=ExtResource("2_im1ts")]
+[node name="Portal" parent="." unique_id=410026563 instance=ExtResource("2_skiid")]
+position = Vector2(598, 166)
+target_scene = "uid://b5wpo5tovj8pa"
+ativo = false
+
+[node name="CharacterBody2D" parent="." unique_id=1830181764 instance=ExtResource("3_h28r4")]
 position = Vector2(36, 163)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=622226301 node_paths=PackedStringArray("top_left", "bottom_right")]
-script = ExtResource("3_oonmu")
+script = ExtResource("4_ksof3")
 top_left = NodePath("../TopLeft")
 bottom_right = NodePath("../BottomRight")
 
@@ -145,23 +151,11 @@ position = Vector2(518, 98)
 [node name="Marker2D7" type="Marker2D" parent="Spawnpoints" unique_id=1996314087]
 position = Vector2(592, 98)
 
-[node name="GerenciadorFase" parent="." unique_id=54439541 node_paths=PackedStringArray("grupo_spawn_points", "texto_hud", "efeito_confete") instance=ExtResource("6_oonmu")]
+[node name="GerenciadorFase" parent="." unique_id=54439541 node_paths=PackedStringArray("grupo_spawn_points", "texto_hud", "efeito_confete") instance=ExtResource("6_b2sct")]
 grupo_spawn_points = NodePath("../Spawnpoints")
 nivel_dificuldade = 1
 texto_hud = NodePath("HUD2/TextoObjetivo")
 efeito_confete = NodePath("EfeitoConfete")
-
-[node name="HUD2" type="CanvasLayer" parent="GerenciadorFase" unique_id=1859925547]
-
-[node name="TextoObjetivo" type="Label" parent="GerenciadorFase/HUD2" unique_id=1942270805]
-offset_left = 244.0
-offset_top = 43.0
-offset_right = 284.0
-offset_bottom = 98.0
-theme_override_fonts/font = ExtResource("7_tkbv5")
-theme_override_font_sizes/font_size = 40
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="EfeitoConfete" type="CPUParticles2D" parent="GerenciadorFase" unique_id=2114175715]
 emitting = false
@@ -176,7 +170,6 @@ scale_amount_min = 4.0
 scale_amount_max = 5.0
 color_initial_ramp = SubResource("Gradient_tkbv5")
 
-[node name="Portal" parent="." unique_id=410026563 instance=ExtResource("5_im1ts")]
-position = Vector2(598, 166)
-target_scene = "uid://b5wpo5tovj8pa"
-ativo = false
+[node name="HUD2" parent="GerenciadorFase" unique_id=1334612400 instance=ExtResource("7_2pt8r")]
+
+[editable path="GerenciadorFase/HUD2"]

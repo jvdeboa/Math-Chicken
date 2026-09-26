@@ -4,8 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://bys7gueg1q52s" path="res://portal.tscn" id="2_1lkm3"]
 [ext_resource type="Texture2D" uid="uid://b3hvy6ot236dn" path="res://Parallax/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="3_5io7x"]
 [ext_resource type="PackedScene" uid="uid://c55n8k331p5do" path="res://Main Character/character_body_2d.tscn" id="4_jbymy"]
-[ext_resource type="PackedScene" uid="uid://x4lb13qqme1u" path="res://Scenes/Fases/gerenciador_fase.tscn" id="5_gefyy"]
-[ext_resource type="FontFile" uid="uid://d21e6txifcm8g" path="res://fonts/kenney-pixel.otf" id="6_cs00v"]
+[ext_resource type="PackedScene" uid="uid://x4lb13qqme1u" path="res://gerenciador/gerenciador_fase.tscn" id="5_gefyy"]
+[ext_resource type="PackedScene" uid="uid://b7ass5yp5ikpy" path="res://Scenes/Fases/hud_2.tscn" id="6_wdwfv"]
+[ext_resource type="PackedScene" uid="uid://d0pcbw1rgma0s" path="res://inimigo_estatico.tscn" id="7_d6r1r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jbymy"]
 texture = ExtResource("3_5io7x")
@@ -134,17 +135,7 @@ nivel_dificuldade = 1
 texto_hud = NodePath("HUD2/TextoObjetivo")
 efeito_confete = NodePath("EfeitoConfete")
 
-[node name="HUD2" type="CanvasLayer" parent="GerenciadorFase" unique_id=1428019179]
-
-[node name="TextoObjetivo" type="Label" parent="GerenciadorFase/HUD2" unique_id=1618081958]
-offset_left = 269.0
-offset_top = 20.0
-offset_right = 309.0
-offset_bottom = 75.0
-theme_override_fonts/font = ExtResource("6_cs00v")
-theme_override_font_sizes/font_size = 40
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
+[node name="HUD2" parent="GerenciadorFase" unique_id=1334612400 instance=ExtResource("6_wdwfv")]
 
 [node name="EfeitoConfete" type="CPUParticles2D" parent="GerenciadorFase" unique_id=2063636437]
 emitting = false
@@ -158,3 +149,62 @@ initial_velocity_max = 400.0
 scale_amount_min = 4.0
 scale_amount_max = 5.0
 color_initial_ramp = SubResource("Gradient_tumiv")
+
+[node name="InimigoEstatico" parent="GerenciadorFase" unique_id=2135955038 instance=ExtResource("7_d6r1r")]
+position = Vector2(123, 295)
+
+[node name="InimigoEstatico2" parent="GerenciadorFase" unique_id=1290744916 instance=ExtResource("7_d6r1r")]
+position = Vector2(143, 295)
+
+[node name="InimigoEstatico3" parent="GerenciadorFase" unique_id=966530116 instance=ExtResource("7_d6r1r")]
+position = Vector2(163, 295)
+
+[node name="InimigoEstatico4" parent="GerenciadorFase" unique_id=1541182001 instance=ExtResource("7_d6r1r")]
+position = Vector2(183, 295)
+
+[node name="InimigoEstatico5" parent="GerenciadorFase" unique_id=1502028695 instance=ExtResource("7_d6r1r")]
+position = Vector2(203, 295)
+
+[node name="InimigoEstatico6" parent="GerenciadorFase" unique_id=1399050292 instance=ExtResource("7_d6r1r")]
+position = Vector2(223, 295)
+
+[node name="InimigoEstatico7" parent="GerenciadorFase" unique_id=270820128 instance=ExtResource("7_d6r1r")]
+position = Vector2(243, 295)
+
+[node name="InimigoEstatico8" parent="GerenciadorFase" unique_id=1503496594 instance=ExtResource("7_d6r1r")]
+position = Vector2(263, 295)
+
+[node name="InimigoEstatico9" parent="GerenciadorFase" unique_id=1413277945 instance=ExtResource("7_d6r1r")]
+position = Vector2(283, 295)
+
+[node name="InimigoEstatico10" parent="GerenciadorFase" unique_id=1041370145 instance=ExtResource("7_d6r1r")]
+position = Vector2(303, 295)
+
+[node name="InimigoEstatico11" parent="GerenciadorFase" unique_id=1829655825 instance=ExtResource("7_d6r1r")]
+position = Vector2(323, 295)
+
+[node name="InimigoEstatico12" parent="GerenciadorFase" unique_id=2119867512 instance=ExtResource("7_d6r1r")]
+position = Vector2(343, 295)
+
+[node name="InimigoEstatico13" parent="GerenciadorFase" unique_id=233994892 instance=ExtResource("7_d6r1r")]
+position = Vector2(363, 295)
+
+[node name="InimigoEstatico14" parent="GerenciadorFase" unique_id=484800267 instance=ExtResource("7_d6r1r")]
+position = Vector2(383, 295)
+
+[node name="InimigoEstatico15" parent="GerenciadorFase" unique_id=25508274 instance=ExtResource("7_d6r1r")]
+position = Vector2(403, 295)
+
+[node name="InimigoEstatico16" parent="GerenciadorFase" unique_id=257935485 instance=ExtResource("7_d6r1r")]
+position = Vector2(423, 295)
+
+[node name="InimigoEstatico17" parent="GerenciadorFase" unique_id=554233074 instance=ExtResource("7_d6r1r")]
+position = Vector2(443, 295)
+
+[node name="InimigoEstatico18" parent="GerenciadorFase" unique_id=1562891052 instance=ExtResource("7_d6r1r")]
+position = Vector2(463, 295)
+
+[node name="InimigoEstatico19" parent="GerenciadorFase" unique_id=929398122 instance=ExtResource("7_d6r1r")]
+position = Vector2(483, 295)
+
+[editable path="GerenciadorFase/HUD2"]

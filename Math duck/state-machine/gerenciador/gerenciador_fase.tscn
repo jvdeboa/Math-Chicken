@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://x4lb13qqme1u"]
 
-[ext_resource type="Script" uid="uid://bo0kn62dkfvj7" path="res://Scenes/Fases/gerenciador_fase.gd" id="1_lrh1p"]
+[ext_resource type="Script" uid="uid://bo0kn62dkfvj7" path="res://gerenciador/gerenciador_fase.gd" id="1_lrh1p"]
 [ext_resource type="PackedScene" uid="uid://bd6nmx4ctfolc" path="res://Scenes/blocos/bloco numeral/bloco_numeral.tscn" id="2_7dud8"]
 [ext_resource type="PackedScene" uid="uid://d0ti3v0wolelo" path="res://Scenes/blocos/bloco sinal/bloco_sinal.tscn" id="3_5ayx4"]
 [ext_resource type="FontFile" uid="uid://d21e6txifcm8g" path="res://fonts/kenney-pixel.otf" id="4_7dud8"]

@@ -4,8 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://bys7gueg1q52s" path="res://portal.tscn" id="2_yaeok"]
 [ext_resource type="Texture2D" uid="uid://b3hvy6ot236dn" path="res://Parallax/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="3_gw4i5"]
 [ext_resource type="PackedScene" uid="uid://c55n8k331p5do" path="res://Main Character/character_body_2d.tscn" id="4_fdc2d"]
-[ext_resource type="PackedScene" uid="uid://x4lb13qqme1u" path="res://Scenes/Fases/gerenciador_fase.tscn" id="5_fcs1t"]
-[ext_resource type="FontFile" uid="uid://d21e6txifcm8g" path="res://fonts/kenney-pixel.otf" id="6_ah2a7"]
+[ext_resource type="PackedScene" uid="uid://x4lb13qqme1u" path="res://gerenciador/gerenciador_fase.tscn" id="5_fcs1t"]
+[ext_resource type="PackedScene" uid="uid://b7ass5yp5ikpy" path="res://Scenes/Fases/hud_2.tscn" id="6_2cskk"]
+[ext_resource type="PackedScene" uid="uid://d0pcbw1rgma0s" path="res://inimigo_estatico.tscn" id="7_xxygq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fdc2d"]
 texture = ExtResource("3_gw4i5")
@@ -140,17 +141,11 @@ nivel_dificuldade = 1
 texto_hud = NodePath("HUD2/TextoObjetivo")
 efeito_confete = NodePath("EfeitoConfete")
 
-[node name="HUD2" type="CanvasLayer" parent="GerenciadorFase" unique_id=701743320]
+[node name="HUD2" parent="GerenciadorFase" unique_id=1334612400 instance=ExtResource("6_2cskk")]
 
-[node name="TextoObjetivo" type="Label" parent="GerenciadorFase/HUD2" unique_id=990337259]
-offset_left = 269.0
+[node name="HBoxContainer" parent="GerenciadorFase/HUD2" index="1" unique_id=32620246]
 offset_top = 20.0
-offset_right = 309.0
-offset_bottom = 75.0
-theme_override_fonts/font = ExtResource("6_ah2a7")
-theme_override_font_sizes/font_size = 40
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
+offset_bottom = 60.0
 
 [node name="EfeitoConfete" type="CPUParticles2D" parent="GerenciadorFase" unique_id=399581907]
 emitting = false
@@ -164,3 +159,62 @@ initial_velocity_max = 400.0
 scale_amount_min = 4.0
 scale_amount_max = 5.0
 color_initial_ramp = SubResource("Gradient_4m83j")
+
+[node name="InimigoEstatico" parent="." unique_id=2135955038 instance=ExtResource("7_xxygq")]
+position = Vector2(126, 294)
+
+[node name="InimigoEstatico2" parent="." unique_id=817662250 instance=ExtResource("7_xxygq")]
+position = Vector2(146, 294)
+
+[node name="InimigoEstatico3" parent="." unique_id=1426187870 instance=ExtResource("7_xxygq")]
+position = Vector2(166, 294)
+
+[node name="InimigoEstatico4" parent="." unique_id=2144434367 instance=ExtResource("7_xxygq")]
+position = Vector2(186, 294)
+
+[node name="InimigoEstatico5" parent="." unique_id=741494267 instance=ExtResource("7_xxygq")]
+position = Vector2(205, 294)
+
+[node name="InimigoEstatico6" parent="." unique_id=40135434 instance=ExtResource("7_xxygq")]
+position = Vector2(225, 294)
+
+[node name="InimigoEstatico7" parent="." unique_id=673811085 instance=ExtResource("7_xxygq")]
+position = Vector2(245, 294)
+
+[node name="InimigoEstatico8" parent="." unique_id=797293415 instance=ExtResource("7_xxygq")]
+position = Vector2(265, 294)
+
+[node name="InimigoEstatico9" parent="." unique_id=1597157307 instance=ExtResource("7_xxygq")]
+position = Vector2(285, 294)
+
+[node name="InimigoEstatico10" parent="." unique_id=2074710262 instance=ExtResource("7_xxygq")]
+position = Vector2(305, 294)
+
+[node name="InimigoEstatico11" parent="." unique_id=2075789471 instance=ExtResource("7_xxygq")]
+position = Vector2(325, 294)
+
+[node name="InimigoEstatico12" parent="." unique_id=787023453 instance=ExtResource("7_xxygq")]
+position = Vector2(345, 294)
+
+[node name="InimigoEstatico13" parent="." unique_id=591638269 instance=ExtResource("7_xxygq")]
+position = Vector2(365, 294)
+
+[node name="InimigoEstatico14" parent="." unique_id=719504181 instance=ExtResource("7_xxygq")]
+position = Vector2(385, 294)
+
+[node name="InimigoEstatico15" parent="." unique_id=2108865740 instance=ExtResource("7_xxygq")]
+position = Vector2(405, 294)
+
+[node name="InimigoEstatico16" parent="." unique_id=886124210 instance=ExtResource("7_xxygq")]
+position = Vector2(425, 294)
+
+[node name="InimigoEstatico17" parent="." unique_id=918010599 instance=ExtResource("7_xxygq")]
+position = Vector2(445, 293)
+
+[node name="InimigoEstatico18" parent="." unique_id=303602290 instance=ExtResource("7_xxygq")]
+position = Vector2(465, 293)
+
+[node name="InimigoEstatico19" parent="." unique_id=812264998 instance=ExtResource("7_xxygq")]
+position = Vector2(485, 293)
+
+[editable path="GerenciadorFase/HUD2"]

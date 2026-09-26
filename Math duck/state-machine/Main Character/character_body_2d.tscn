@@ -143,7 +143,7 @@ _data = {
 &"Run": SubResource("Animation_6ct3r")
 }
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1830181764]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1830181764 groups=["jogador"]]
 script = ExtResource("1_lhvu3")
 SPEED = 160.0
 dash_cooldown = 1.5
