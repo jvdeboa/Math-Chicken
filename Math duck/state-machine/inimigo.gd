@@ -4,6 +4,15 @@ var speed = 100
 var direction = 1
 var gravity = 980
 
+func _ready():
+	# Procura a galinha na fase assim que o inimigo nasce
+	var jogador = get_tree().get_first_node_in_group("jogador")
+	
+	if jogador:
+		# Diz para os RayCasts ignorarem completamente a galinha
+		$RayWall.add_exception(jogador)
+		$RayEdge.add_exception(jogador)
+
 func _physics_process(delta):
 	# 1. Aplicar gravidade (apenas se não estiver no chão)
 	if not is_on_floor():

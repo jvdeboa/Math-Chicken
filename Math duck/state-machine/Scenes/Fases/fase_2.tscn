@@ -128,7 +128,7 @@ position = Vector2(373, 110)
 position = Vector2(224, 115)
 
 [node name="Marker2D3" type="Marker2D" parent="Spawnpoints" unique_id=1778438944]
-position = Vector2(602, 62)
+position = Vector2(611, 31)
 
 [node name="Marker2D4" type="Marker2D" parent="Spawnpoints" unique_id=2070876774]
 position = Vector2(112, 68)
@@ -137,7 +137,8 @@ position = Vector2(112, 68)
 position = Vector2(42, 94)
 
 [node name="Inimigo" parent="." unique_id=1490096557 instance=ExtResource("7_tus8r")]
-position = Vector2(575, 69)
+position = Vector2(581, 75)
+scale = Vector2(0.56, 0.56)
 
 [node name="GerenciadorFase" parent="." unique_id=54439541 node_paths=PackedStringArray("grupo_spawn_points", "texto_hud", "efeito_confete") instance=ExtResource("5_u0tcw")]
 grupo_spawn_points = NodePath("../Spawnpoints")

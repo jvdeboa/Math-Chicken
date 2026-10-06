@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://dtut3t1u60yks" path="res://inimigo_estatico.gd" id="1_n2lkb"]
 [ext_resource type="Texture2D" uid="uid://mab6cbnp8nrm" path="res://sprites/inimigo/Sprite-0004.png" id="2_mswum"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mswum"]
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_4mjk6"]
+points = PackedVector2Array(11.675312, 4.8669424, 4.523849, 3.9414206, 2.045187, -11.481168, 17.661919, -11.138073, 18.901249, -3.4267793)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jotdp"]
 atlas = ExtResource("2_mswum")
@@ -24,7 +25,9 @@ animations = [{
 script = ExtResource("1_n2lkb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=514223501]
-shape = SubResource("RectangleShape2D_mswum")
+position = Vector2(-10, -4.0000005)
+rotation = 0.85409194
+shape = SubResource("ConvexPolygonShape2D_4mjk6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=475642588]
 

@@ -8,10 +8,10 @@
 script = ExtResource("1_xkykv")
 
 [node name="TextoObjetivo" type="Label" parent="." unique_id=1720904562]
-offset_left = 269.0
-offset_top = 20.0
-offset_right = 309.0
-offset_bottom = 75.0
+offset_left = 268.0
+offset_top = 16.0
+offset_right = 308.0
+offset_bottom = 71.0
 theme_override_fonts/font = ExtResource("1_5kkof")
 theme_override_font_sizes/font_size = 40
 horizontal_alignment = 1
