@@ -12,7 +12,7 @@ extends Node
 var resultado_esperado: int = 0
 var tempo_restante: float = 0.0
 var blocos_coletados: Array[String] = []
-var equacao_correta: Array[String] = [] # Guarda a ordem exata que o jogador tem de apanhar
+var equacao_correta: Array[String] = []
 var quantidade_necessaria: int = 3
 var blocos_no_mapa: Array[String] = []
 var jogo_terminou: bool = false
@@ -24,7 +24,6 @@ func _ready() -> void:
 	atualizar_hud()
 	
 func _process(delta: float) -> void:
-	# Se o jogo já acabou (vitória ou morte), o relógio pára
 	if jogo_terminou: return
 	
 	if tempo_restante > 0:
@@ -33,7 +32,6 @@ func _process(delta: float) -> void:
 		if texto_tempo:
 			texto_tempo.text = "%.2f" % tempo_restante 
 	else:
-		# ACABOU O TEMPO!
 		tempo_restante = 0.0
 		if texto_tempo: texto_tempo.text = "0.00"
 		
@@ -42,7 +40,6 @@ func _process(delta: float) -> void:
 		
 		var jogador = get_tree().get_first_node_in_group("jogador")
 		if jogador:
-			# Passamos a posição dela e, como quantidade de dano, passamos o total de vidas que ela tem!
 			if jogador.has_method("tomar_dano"):
 				jogador.tomar_dano(jogador.global_position.x, jogador.vidas)
 
@@ -76,7 +73,6 @@ func gerar_nova_equacao() -> void:
 	for i in range(quantidade_numeros - 1):
 		operadores_certos.append(operacoes_permitidas.pick_random())
 		
-	# SALVA A ORDEM CORRETA PARA VERIFICAR DEPOIS
 	equacao_correta.clear()
 	for i in range(numeros_certos.size()):
 		equacao_correta.append(str(numeros_certos[i]))
@@ -140,30 +136,25 @@ func espalhar_blocos(blocos: Array[String]) -> void:
 		novo_bloco.add_to_group("blocos_fase")
 		get_parent().add_child.call_deferred(novo_bloco)
 
-# --- SISTEMA DE HUD E VALIDAÇÃO PRECOCE ---
-
 func registrar_coleta(valor_coletado: String, pos_bloco: Vector2, jogador: CharacterBody2D) -> void:
-	if jogo_terminou: return # Se o jogo já acabou, ignora qualquer toque!
+	if jogo_terminou: return 
 	
 	blocos_coletados.append(valor_coletado)
 	blocos_no_mapa.erase(valor_coletado)
 	animar_bloco_para_hud(valor_coletado, pos_bloco)
 	
-	# 1. Morte por Sintaxe
 	var indice = blocos_coletados.size() - 1
 	var is_numero = valor_coletado.is_valid_int()
 	if (indice % 2 == 0 and not is_numero) or (indice % 2 != 0 and is_numero):
 		print("Morreu! O jogo esperava um ", "número" if indice % 2 == 0 else "sinal")
-		jogo_terminou = true # <--- TRANCA IMEDIATAMENTE
+		jogo_terminou = true 
 		matar_jogador(jogador)
 		return
 
-	# 2. Quando a equação está completa
 	if blocos_coletados.size() == quantidade_necessaria:
-		jogo_terminou = true # <--- A SOLUÇÃO AQUI! Tranca o jogo ANTES da pausa de 0.5s!
+		jogo_terminou = true 
 		jogador.set_physics_process(false)
 		
-		# Agora podemos esperar em paz, porque a trava lá em cima vai impedir novas coletas
 		await get_tree().create_timer(0.5).timeout 
 		
 		if avaliar_expressao(blocos_coletados) == float(resultado_esperado):
@@ -179,38 +170,32 @@ func registrar_coleta(valor_coletado: String, pos_bloco: Vector2, jogador: Chara
 			print("Morreu! O resultado final estava errado.")
 			matar_jogador(jogador)
 			
-	# 3. O Jogo Simula o Futuro
 	else:
 		if not tem_solucao_futura(blocos_coletados, blocos_no_mapa):
 			print("Morreu cedo! Nenhuma combinação com os blocos restantes dará ", resultado_esperado)
-			jogo_terminou = true # <--- TRANCA IMEDIATAMENTE
+			jogo_terminou = true 
 			matar_jogador(jogador)
 
 func tem_solucao_futura(coletados: Array, disponiveis: Array) -> bool:
 	var faltam = quantidade_necessaria - coletados.size()
 	
-	# Se a simulação chegou ao fim dos espaços, verifica se essa linha do tempo está certa
 	if faltam == 0:
 		return avaliar_expressao(coletados) == float(resultado_esperado)
 
-	# Tenta preencher o próximo espaço com todos os blocos que sobraram
 	for i in range(disponiveis.size()):
 		var bloco_teste = disponiveis[i]
 		var proximo_indice = coletados.size()
 		
-		# Corta caminhos óbvios que dariam erro (ex: testar colocar sinal onde é número)
 		var is_numero = bloco_teste.is_valid_int()
 		if proximo_indice % 2 == 0 and not is_numero: continue
 		if proximo_indice % 2 != 0 and is_numero: continue
 		
-		# Cria uma linha do tempo alternativa e testa
 		var nova_coletados = coletados.duplicate()
 		nova_coletados.append(bloco_teste)
 		
 		var nova_disponiveis = disponiveis.duplicate()
 		nova_disponiveis.remove_at(i)
 		
-		# Recursão: Se alguma destas linhas do tempo der certo, retorna verdadeiro
 		if tem_solucao_futura(nova_coletados, nova_disponiveis):
 			return true
 			
@@ -237,8 +222,8 @@ func atualizar_hud() -> void:
 		if i < blocos_coletados.size():
 			painel += blocos_coletados[i] + " "
 		else:
-			if i % 2 == 0: painel += "_ " # Espaço de Número
-			else: painel += "? " # Espaço de Sinal
+			if i % 2 == 0: painel += "_ " 
+			else: painel += "? " 
 				
 	painel += "= " + str(resultado_esperado)
 	texto_hud.text = painel
@@ -246,29 +231,30 @@ func atualizar_hud() -> void:
 func animar_bloco_para_hud(valor: String, pos_inicial: Vector2) -> void:
 	if not texto_hud: return
 	
-	# Cria uma cópia falsa do bloco só para fazer a animação
 	var lbl_voando = Label.new()
 	lbl_voando.text = valor
 	lbl_voando.add_theme_font_size_override("font_size", 30)
 	
-	# Converte a posição do mapa para a posição do ecrã
 	var pos_tela = get_viewport().canvas_transform * pos_inicial
 	lbl_voando.position = pos_tela
 	
 	texto_hud.get_parent().add_child(lbl_voando)
 	
-	# Magia do Tween (Faz voar até à interface de forma suave)
 	var tween = create_tween()
 	var destino = texto_hud.position + Vector2(texto_hud.size.x / 2, 0)
 	tween.tween_property(lbl_voando, "position", destino, 0.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	
-	# Quando o voo terminar: atualiza a HUD real e apaga a cópia voadora
 	tween.tween_callback(atualizar_hud)
 	tween.tween_callback(lbl_voando.queue_free)
 
 func matar_jogador(jogador: CharacterBody2D) -> void:
 	if jogador.has_method("tomar_dano"):
-		# MUDANÇA AQUI: Passamos a posição, 1 de dano, e TRUE para teletransportar!
+		Engine.time_scale = 1.0
+		
+		# Devolve os movimentos normais à galinha antes de aplicar o dano!
+		jogador.set_physics_process(true) 
+		
+		# Aplica o dano e teletransporta
 		jogador.tomar_dano(jogador.global_position.x - 10, 1, true) 
 		
 		if jogador.vidas > 0:
@@ -277,7 +263,7 @@ func matar_jogador(jogador: CharacterBody2D) -> void:
 			blocos_coletados.clear()
 			limpar_blocos_restantes()
 			
-			await get_tree().create_timer(0.5).timeout
+			await get_tree().create_timer(0.6).timeout
 			
 			jogo_terminou = false
 			
@@ -285,20 +271,17 @@ func matar_jogador(jogador: CharacterBody2D) -> void:
 			atualizar_hud()
 			
 		else:
-			print("Game Over de Matemática!")
+			print("Game Over")
 
 func limpar_blocos_restantes() -> void:
-	# Pega todos os blocos que sobraram no mapa
 	var blocos_sobrando = get_tree().get_nodes_in_group("blocos_fase")
 	
 	for bloco in blocos_sobrando:
 		if is_instance_valid(bloco):
-			# 1. Desliga a colisão imediatamente para garantir que a galinha não toca
 			if bloco.has_node("CollisionShape2D"):
 				bloco.get_node("CollisionShape2D").set_deferred("disabled", true)
 			
-			# 2. Efeito de Dissolver (Some e Encolhe ao mesmo tempo)
 			var tween = create_tween()
-			tween.parallel().tween_property(bloco, "modulate:a", 0.0, 0.4) # Fica transparente
-			tween.parallel().tween_property(bloco, "scale", Vector2.ZERO, 0.4) # Encolhe para 0
-			tween.chain().tween_callback(bloco.queue_free) # Apaga da memória no fim
+			tween.parallel().tween_property(bloco, "modulate:a", 0.0, 0.4) 
+			tween.parallel().tween_property(bloco, "scale", Vector2.ZERO, 0.4) 
+			tween.chain().tween_callback(bloco.queue_free)

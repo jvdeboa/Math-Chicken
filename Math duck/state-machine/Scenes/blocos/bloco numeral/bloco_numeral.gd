@@ -17,6 +17,8 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	# Agora só reage se quem encostar for exatamente o jogador
 	if body.is_in_group("jogador"):
+		if body.invulneravel:
+			return
 		# Grita para o Gerenciador: o valor, a posição onde estava, e quem o apanhou!
 		get_tree().call_group("gerenciador", "registrar_coleta", valor_do_bloco, global_position, body)
 		queue_free()
