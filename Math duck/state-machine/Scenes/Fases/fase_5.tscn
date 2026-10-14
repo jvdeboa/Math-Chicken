@@ -130,7 +130,7 @@ position = Vector2(421, 293)
 position = Vector2(615, 27)
 
 [node name="Marker2D4" type="Marker2D" parent="Spawnpoints" unique_id=1415561842]
-position = Vector2(326, 123)
+position = Vector2(281, 120)
 
 [node name="Marker2D5" type="Marker2D" parent="Spawnpoints" unique_id=803745207]
 position = Vector2(195, 185)

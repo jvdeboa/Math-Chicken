@@ -115,7 +115,7 @@ position = Vector2(32, 223)
 [node name="Spawnpoints" type="Node2D" parent="." unique_id=1085188136]
 
 [node name="Marker2D" type="Marker2D" parent="Spawnpoints" unique_id=1123382407]
-position = Vector2(430, 221)
+position = Vector2(427, 174)
 
 [node name="Marker2D9" type="Marker2D" parent="Spawnpoints" unique_id=589783691]
 position = Vector2(282, 170)
@@ -161,60 +161,60 @@ scale_amount_max = 5.0
 color_initial_ramp = SubResource("Gradient_4m83j")
 
 [node name="InimigoEstatico" parent="." unique_id=2135955038 instance=ExtResource("7_xxygq")]
-position = Vector2(126, 294)
+position = Vector2(126, 297)
 
 [node name="InimigoEstatico2" parent="." unique_id=817662250 instance=ExtResource("7_xxygq")]
-position = Vector2(146, 294)
+position = Vector2(146, 297)
 
 [node name="InimigoEstatico3" parent="." unique_id=1426187870 instance=ExtResource("7_xxygq")]
-position = Vector2(166, 294)
+position = Vector2(166, 297)
 
 [node name="InimigoEstatico4" parent="." unique_id=2144434367 instance=ExtResource("7_xxygq")]
-position = Vector2(186, 294)
+position = Vector2(186, 297)
 
 [node name="InimigoEstatico5" parent="." unique_id=741494267 instance=ExtResource("7_xxygq")]
-position = Vector2(205, 294)
+position = Vector2(205, 297)
 
 [node name="InimigoEstatico6" parent="." unique_id=40135434 instance=ExtResource("7_xxygq")]
-position = Vector2(225, 294)
+position = Vector2(225, 297)
 
 [node name="InimigoEstatico7" parent="." unique_id=673811085 instance=ExtResource("7_xxygq")]
-position = Vector2(245, 294)
+position = Vector2(245, 297)
 
 [node name="InimigoEstatico8" parent="." unique_id=797293415 instance=ExtResource("7_xxygq")]
-position = Vector2(265, 294)
+position = Vector2(265, 297)
 
 [node name="InimigoEstatico9" parent="." unique_id=1597157307 instance=ExtResource("7_xxygq")]
-position = Vector2(285, 294)
+position = Vector2(285, 297)
 
 [node name="InimigoEstatico10" parent="." unique_id=2074710262 instance=ExtResource("7_xxygq")]
-position = Vector2(305, 294)
+position = Vector2(305, 297)
 
 [node name="InimigoEstatico11" parent="." unique_id=2075789471 instance=ExtResource("7_xxygq")]
-position = Vector2(325, 294)
+position = Vector2(325, 297)
 
 [node name="InimigoEstatico12" parent="." unique_id=787023453 instance=ExtResource("7_xxygq")]
-position = Vector2(345, 294)
+position = Vector2(345, 297)
 
 [node name="InimigoEstatico13" parent="." unique_id=591638269 instance=ExtResource("7_xxygq")]
-position = Vector2(365, 294)
+position = Vector2(365, 297)
 
 [node name="InimigoEstatico14" parent="." unique_id=719504181 instance=ExtResource("7_xxygq")]
-position = Vector2(385, 294)
+position = Vector2(385, 297)
 
 [node name="InimigoEstatico15" parent="." unique_id=2108865740 instance=ExtResource("7_xxygq")]
-position = Vector2(405, 294)
+position = Vector2(405, 297)
 
 [node name="InimigoEstatico16" parent="." unique_id=886124210 instance=ExtResource("7_xxygq")]
-position = Vector2(425, 294)
+position = Vector2(425, 297)
 
 [node name="InimigoEstatico17" parent="." unique_id=918010599 instance=ExtResource("7_xxygq")]
-position = Vector2(445, 293)
+position = Vector2(445, 296)
 
 [node name="InimigoEstatico18" parent="." unique_id=303602290 instance=ExtResource("7_xxygq")]
-position = Vector2(465, 293)
+position = Vector2(465, 296)
 
 [node name="InimigoEstatico19" parent="." unique_id=812264998 instance=ExtResource("7_xxygq")]
-position = Vector2(485, 293)
+position = Vector2(485, 296)
 
 [editable path="GerenciadorFase/HUD2"]
