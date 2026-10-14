@@ -17,13 +17,11 @@ var dash_timer: float = 0.0
 var can_dash: bool = true
 var vidas = 3
 var invulneravel = false 
-var posicao_inicial: Vector2 # <-- Vai guardar onde a galinha nasce
+var posicao_inicial: Vector2 
 
-# ATENÇÃO: Verifique se o caminho abaixo aponta corretamente para a sua CENA (.tscn) e não para o script (.gd)
 const MENU_GAME_OVER = preload("res://menu_game_over.tscn")
 
 func _ready():
-	# Assim que a fase começa, salvamos o lugar exato onde a galinha está
 	posicao_inicial = global_position
 
 func _physics_process(delta: float) -> void:
@@ -73,20 +71,19 @@ func tomar_dano(posicao_inimigo_x, quantidade_dano = 1, voltar_pro_inicio = fals
 
 	await get_tree().create_timer(0.5).timeout
 
-	# --- NOVO SISTEMA DE GAME OVER ---
 	if vidas <= 0:
-		# Instancia o menu de morte e adiciona-o ao ecrã
 		var tela_morte = MENU_GAME_OVER.instantiate()
 		get_parent().add_child(tela_morte)
-		
-		# Pausa o jogo (congela tempo, gravidade, inimigos, etc.)
 		get_tree().paused = true 
 		return
 
-	# SE SOBREVIVEU, mas tomou dano de um espinho de parkour:
 	if voltar_pro_inicio:
-		global_position = posicao_inicial # Teletransporta de volta pro começo!
-		velocity = Vector2.ZERO # Zera a velocidade do pulo pra ela não sair voando
+		global_position = posicao_inicial 
+		velocity = Vector2.ZERO 
+		
+		# Força a State Machine a voltar ao normal para poder pular
+		if has_node("StateMachine") and $StateMachine.has_method("transition_to"):
+			$StateMachine.transition_to("Idle")
 
 	if has_node("StateMachine"):
 		$StateMachine.process_mode = Node.PROCESS_MODE_INHERIT

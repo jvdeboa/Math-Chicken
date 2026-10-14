@@ -5,8 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c55n8k331p5do" path="res://Main Character/character_body_2d.tscn" id="3_h28r4"]
 [ext_resource type="Script" uid="uid://mfv8potre2gi" path="res://static_room_camera.gd" id="4_ksof3"]
 [ext_resource type="Texture2D" uid="uid://b3hvy6ot236dn" path="res://Parallax/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="5_sb4wv"]
-[ext_resource type="PackedScene" uid="uid://x4lb13qqme1u" path="res://gerenciador/gerenciador_fase.tscn" id="6_b2sct"]
-[ext_resource type="PackedScene" uid="uid://b7ass5yp5ikpy" path="res://Scenes/Fases/hud_2.tscn" id="7_2pt8r"]
+[ext_resource type="PackedScene" uid="uid://c0njvv8egv1cf" path="res://Scenes/Fases/gerenciador.tscn" id="6_dsyea"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_im1ts"]
 texture = ExtResource("5_sb4wv")
@@ -89,11 +88,6 @@ texture = ExtResource("5_sb4wv")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_im1ts")
 
-[sub_resource type="Gradient" id="Gradient_tkbv5"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0.08415841, 0.26732674, 0.46534654, 0.6732673, 0.84653467, 1)
-colors = PackedColorArray(1, 0, 0, 1, 0.047880795, 0.9564356, 0.10850761, 1, 0.93125, 0.7816036, 0.080886595, 1, 0.99375, 0.21638972, 0.80360377, 1, 0.0813548, 0.894563, 0.9636574, 1, 0.16124165, 0.26085907, 1, 1)
-
 [node name="Node2D" type="Node2D" unique_id=2026429598]
 
 [node name="Node2D" parent="." unique_id=864751463 instance=ExtResource("1_2pt8r")]
@@ -151,25 +145,5 @@ position = Vector2(518, 98)
 [node name="Marker2D7" type="Marker2D" parent="Spawnpoints" unique_id=1996314087]
 position = Vector2(592, 98)
 
-[node name="GerenciadorFase" parent="." unique_id=54439541 node_paths=PackedStringArray("grupo_spawn_points", "texto_hud", "efeito_confete") instance=ExtResource("6_b2sct")]
+[node name="GerenciadorFase" parent="." unique_id=2067538410 node_paths=PackedStringArray("grupo_spawn_points") instance=ExtResource("6_dsyea")]
 grupo_spawn_points = NodePath("../Spawnpoints")
-nivel_dificuldade = 1
-texto_hud = NodePath("HUD2/TextoObjetivo")
-efeito_confete = NodePath("EfeitoConfete")
-
-[node name="EfeitoConfete" type="CPUParticles2D" parent="GerenciadorFase" unique_id=2114175715]
-emitting = false
-amount = 50
-one_shot = true
-explosiveness = 0.9
-direction = Vector2(1, -1)
-spread = 67.0
-initial_velocity_min = 300.0
-initial_velocity_max = 400.0
-scale_amount_min = 4.0
-scale_amount_max = 5.0
-color_initial_ramp = SubResource("Gradient_tkbv5")
-
-[node name="HUD2" parent="GerenciadorFase" unique_id=1334612400 instance=ExtResource("7_2pt8r")]
-
-[editable path="GerenciadorFase/HUD2"]
