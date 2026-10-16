@@ -105,7 +105,7 @@ scale = Vector2(2, 2)
 [node name="Portal" parent="Node2D" unique_id=410026563 instance=ExtResource("2_87mam")]
 position = Vector2(56.5, -5)
 scale = Vector2(0.5, 0.5)
-target_scene = "uid://hmqg7iuqd0o"
+target_scene = "uid://dx6vhifuje3ea"
 ativo = false
 
 [node name="Inimigo" parent="Node2D" unique_id=1490096557 instance=ExtResource("8_u86bj")]

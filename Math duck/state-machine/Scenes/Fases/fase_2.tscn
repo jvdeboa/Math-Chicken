@@ -170,7 +170,7 @@ scale_amount_max = 5.0
 color_initial_ramp = SubResource("Gradient_cjr2x")
 
 [node name="Inimigo" parent="." unique_id=1490096557 instance=ExtResource("7_tus8r")]
-position = Vector2(216, 165)
+position = Vector2(452, 164)
 
 [editable path="GerenciadorFase"]
 [editable path="GerenciadorFase/HUD2"]

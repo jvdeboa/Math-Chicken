@@ -8,7 +8,7 @@ const PRIMEIRA_FASE = "res://Scenes/Fases/fase_1.tscn"
 func _on_botao_reiniciar_pressed() -> void:
 	get_tree().paused = false # Tira o jogo da pausa
 	
-	Mudarpont.pontuacao = 0 # Zera a pontuação global!
+	Mudarpont.pontuacao = 1 # Zera a pontuação global!
 	
 	get_tree().change_scene_to_file(PRIMEIRA_FASE)
 
