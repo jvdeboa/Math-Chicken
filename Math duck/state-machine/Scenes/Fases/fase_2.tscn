@@ -144,9 +144,9 @@ efeito_confete = NodePath("EfeitoConfete")
 
 [node name="TextoTempo" parent="GerenciadorFase/HUD" parent_id_path=PackedInt32Array(54439541, 1691194926) index="1" unique_id=975742819]
 offset_left = 591.0
-offset_top = 2.9999995
+offset_top = 4.9999995
 offset_right = 631.0
-offset_bottom = 26.0
+offset_bottom = 28.0
 
 [node name="HUD2" parent="GerenciadorFase" unique_id=1334612400 instance=ExtResource("7_cd0y6")]
 

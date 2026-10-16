@@ -104,7 +104,7 @@ scale = Vector2(2, 2)
 [node name="Portal" parent="Node2D" unique_id=410026563 instance=ExtResource("2_lo44a")]
 position = Vector2(81, 99)
 scale = Vector2(0.5, 0.5)
-target_scene = "uid://btdyoevv7s7og"
+target_scene = "uid://ckwupe2hqa84q"
 ativo = false
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1957993788]
@@ -140,6 +140,7 @@ position = Vector2(128, 179)
 [node name="GerenciadorFase" parent="." unique_id=54439541 node_paths=PackedStringArray("grupo_spawn_points", "texto_hud", "efeito_confete") instance=ExtResource("6_q0pbg")]
 position = Vector2(1, 21)
 grupo_spawn_points = NodePath("../Spawnpoints")
+nivel_dificuldade = 2
 texto_hud = NodePath("HUD2/TextoObjetivo")
 tempo_maximo = 45.0
 efeito_confete = NodePath("EfeitoConfete")
