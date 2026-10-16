@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://hmqg7iuqd0o"]
+[gd_scene format=4 uid="uid://biemedrftmkn4"]
 
 [ext_resource type="PackedScene" uid="uid://d018oh7rcugau" path="res://bg.tscn" id="1_xlg2h"]
 [ext_resource type="PackedScene" uid="uid://bys7gueg1q52s" path="res://portal.tscn" id="2_lo44a"]
@@ -138,9 +138,17 @@ grupo_spawn_points = NodePath("../Spawnpoints")
 nivel_dificuldade = 2
 tempo_maximo = 60.0
 
-[node name="TextoTempo" parent="GerenciadorFase/HUD" parent_id_path=PackedInt32Array(2067538410, 1085465738) index="0" unique_id=1766934084]
-offset_left = 16.0
-offset_right = 56.0
+[node name="TextoPontuação" parent="GerenciadorFase/HUD" parent_id_path=PackedInt32Array(2067538410, 1085465738) index="0" unique_id=729789396]
+offset_left = 588.0
+offset_top = 5.9999995
+offset_right = 628.0
+offset_bottom = 29.0
+
+[node name="TextoTempo" parent="GerenciadorFase/HUD" parent_id_path=PackedInt32Array(2067538410, 1085465738) index="1" unique_id=1766934084]
+offset_left = 12.0
+offset_top = -22.0
+offset_right = 52.0
+offset_bottom = 1.0
 
 [node name="HBoxContainer" parent="GerenciadorFase/HUD2" parent_id_path=PackedInt32Array(2067538410, 1334612400) index="1" unique_id=32620246]
 offset_left = 16.0

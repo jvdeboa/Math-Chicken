@@ -119,7 +119,7 @@ position = Vector2(36, 163)
 position = Vector2(479, 290)
 
 [node name="Marker2D9" type="Marker2D" parent="Spawnpoints" unique_id=31601825]
-position = Vector2(257, 163)
+position = Vector2(294, 126)
 
 [node name="Marker2D8" type="Marker2D" parent="Spawnpoints" unique_id=1628825842]
 position = Vector2(373, 110)
@@ -128,7 +128,7 @@ position = Vector2(373, 110)
 position = Vector2(224, 115)
 
 [node name="Marker2D3" type="Marker2D" parent="Spawnpoints" unique_id=1778438944]
-position = Vector2(611, 31)
+position = Vector2(613, 41)
 
 [node name="Marker2D4" type="Marker2D" parent="Spawnpoints" unique_id=2070876774]
 position = Vector2(112, 68)
@@ -141,6 +141,12 @@ grupo_spawn_points = NodePath("../Spawnpoints")
 nivel_dificuldade = 1
 texto_hud = NodePath("HUD2/TextoObjetivo")
 efeito_confete = NodePath("EfeitoConfete")
+
+[node name="TextoTempo" parent="GerenciadorFase/HUD" parent_id_path=PackedInt32Array(54439541, 1691194926) index="1" unique_id=975742819]
+offset_left = 591.0
+offset_top = 2.9999995
+offset_right = 631.0
+offset_bottom = 26.0
 
 [node name="HUD2" parent="GerenciadorFase" unique_id=1334612400 instance=ExtResource("7_cd0y6")]
 
