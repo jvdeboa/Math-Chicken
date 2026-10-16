@@ -168,9 +168,6 @@ theme_override_constants/outline_size = 0
 offset_top = 12.0
 offset_bottom = 52.0
 
-[node name="Inimigo" parent="GerenciadorFase" unique_id=1490096557 instance=ExtResource("9_8valf")]
-position = Vector2(292, 48)
-
 [node name="Inimigo3" parent="GerenciadorFase" unique_id=298409244 instance=ExtResource("9_8valf")]
 position = Vector2(370, 273)
 
