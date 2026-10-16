@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c55n8k331p5do" path="res://Main Character/character_body_2d.tscn" id="4_iolds"]
 [ext_resource type="PackedScene" uid="uid://x4lb13qqme1u" path="res://gerenciador/gerenciador_fase.tscn" id="5_u0tcw"]
 [ext_resource type="PackedScene" uid="uid://b7ass5yp5ikpy" path="res://Scenes/Fases/hud_2.tscn" id="7_cd0y6"]
+[ext_resource type="PackedScene" uid="uid://godhv45n7v64" path="res://inimigo.tscn" id="7_tus8r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xe686"]
 texture = ExtResource("3_4823c")
@@ -162,4 +163,8 @@ scale_amount_min = 4.0
 scale_amount_max = 5.0
 color_initial_ramp = SubResource("Gradient_cjr2x")
 
+[node name="Inimigo" parent="." unique_id=1490096557 instance=ExtResource("7_tus8r")]
+position = Vector2(216, 165)
+
+[editable path="GerenciadorFase"]
 [editable path="GerenciadorFase/HUD2"]

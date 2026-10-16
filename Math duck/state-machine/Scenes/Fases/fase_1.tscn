@@ -147,3 +147,6 @@ position = Vector2(592, 98)
 
 [node name="GerenciadorFase" parent="." unique_id=2067538410 node_paths=PackedStringArray("grupo_spawn_points") instance=ExtResource("6_dsyea")]
 grupo_spawn_points = NodePath("../Spawnpoints")
+
+[editable path="GerenciadorFase"]
+[editable path="GerenciadorFase/HUD2"]
