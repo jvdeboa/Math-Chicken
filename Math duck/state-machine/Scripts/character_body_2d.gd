@@ -48,7 +48,7 @@ func tomar_dano(posicao_inimigo_x, quantidade_dano = 1, voltar_pro_inicio = fals
 		return 
 
 	vidas -= quantidade_dano
-	print("Ai! Vidas restantes: ", vidas)
+	print("vidas restantes: ", vidas)
 	
 	get_tree().call_group("hud_vidas", "atualizar_vidas", vidas)
 
