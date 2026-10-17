@@ -112,12 +112,12 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAFAAQAAAABAAAAAAAGAAQAAAACAAAAAAAGAAQ
 tile_set = SubResource("TileSet_pai1q")
 
 [node name="CharacterBody2D" parent="." unique_id=1830181764 instance=ExtResource("4_0ypyg")]
-position = Vector2(36, 163)
+position = Vector2(35, 177)
 
 [node name="Spawnpoints" type="Node2D" parent="." unique_id=492589945]
 
 [node name="Marker2D" type="Marker2D" parent="Spawnpoints" unique_id=52111397]
-position = Vector2(417, 233)
+position = Vector2(431, 230)
 
 [node name="Marker2D9" type="Marker2D" parent="Spawnpoints" unique_id=1025075424]
 position = Vector2(538, 25)
@@ -126,13 +126,13 @@ position = Vector2(538, 25)
 position = Vector2(351, 135)
 
 [node name="Marker2D2" type="Marker2D" parent="Spawnpoints" unique_id=233039906]
-position = Vector2(165, 30)
+position = Vector2(162, 33)
 
 [node name="Marker2D3" type="Marker2D" parent="Spawnpoints" unique_id=1461972712]
 position = Vector2(609, 29)
 
 [node name="Marker2D4" type="Marker2D" parent="Spawnpoints" unique_id=360213371]
-position = Vector2(125, 75)
+position = Vector2(37, 103)
 
 [node name="Marker2D5" type="Marker2D" parent="Spawnpoints" unique_id=1990800862]
 position = Vector2(128, 179)
