@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://mfv8potre2gi" path="res://static_room_camera.gd" id="4_ksof3"]
 [ext_resource type="Texture2D" uid="uid://b3hvy6ot236dn" path="res://Parallax/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="5_sb4wv"]
 [ext_resource type="PackedScene" uid="uid://c0njvv8egv1cf" path="res://Scenes/Fases/gerenciador.tscn" id="6_dsyea"]
+[ext_resource type="FontFile" uid="uid://d21e6txifcm8g" path="res://fonts/kenney-pixel.otf" id="7_famfp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_im1ts"]
 texture = ExtResource("5_sb4wv")
@@ -88,6 +89,12 @@ texture = ExtResource("5_sb4wv")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_im1ts")
 
+[sub_resource type="LabelSettings" id="LabelSettings_cwqqj"]
+font = ExtResource("7_famfp")
+font_size = 19
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Node2D" type="Node2D" unique_id=2026429598]
 
 [node name="Node2D" parent="." unique_id=864751463 instance=ExtResource("1_2pt8r")]
@@ -147,6 +154,61 @@ position = Vector2(592, 98)
 
 [node name="GerenciadorFase" parent="." unique_id=2067538410 node_paths=PackedStringArray("grupo_spawn_points") instance=ExtResource("6_dsyea")]
 grupo_spawn_points = NodePath("../Spawnpoints")
+
+[node name="Label" type="Label" parent="GerenciadorFase/HUD" parent_id_path=PackedInt32Array(2067538410, 1085465738) index="2" unique_id=1804537836]
+offset_left = 566.0
+offset_top = 23.0
+offset_right = 633.0
+offset_bottom = 49.0
+text = "TEMPO ↑"
+label_settings = SubResource("LabelSettings_cwqqj")
+
+[node name="Label2" type="Label" parent="GerenciadorFase/HUD" parent_id_path=PackedInt32Array(2067538410, 1085465738) index="3" unique_id=223167057]
+offset_left = 17.0
+offset_top = 11.0
+offset_right = 95.0
+offset_bottom = 37.0
+text = "↑ Pontuação "
+label_settings = SubResource("LabelSettings_cwqqj")
+
+[node name="Label3" type="Label" parent="GerenciadorFase/HUD" parent_id_path=PackedInt32Array(2067538410, 1085465738) index="4" unique_id=517621129]
+offset_left = 21.0
+offset_top = 52.0
+offset_right = 99.0
+offset_bottom = 78.0
+text = "VIDAS ↑"
+label_settings = SubResource("LabelSettings_cwqqj")
+
+[node name="Label4" type="Label" parent="GerenciadorFase/HUD" parent_id_path=PackedInt32Array(2067538410, 1085465738) index="5" unique_id=1340851313]
+offset_left = 217.0
+offset_top = 44.0
+offset_right = 295.0
+offset_bottom = 70.0
+text = "Número ↑"
+label_settings = SubResource("LabelSettings_cwqqj")
+
+[node name="Label5" type="Label" parent="GerenciadorFase/HUD" parent_id_path=PackedInt32Array(2067538410, 1085465738) index="6" unique_id=1514205967]
+offset_left = 291.0
+offset_top = 44.0
+offset_right = 369.0
+offset_bottom = 70.0
+text = "↑ sinal"
+label_settings = SubResource("LabelSettings_cwqqj")
+
+[node name="Label6" type="Label" parent="GerenciadorFase/HUD" parent_id_path=PackedInt32Array(2067538410, 1085465738) index="7" unique_id=1149409408]
+offset_left = 14.0
+offset_top = 221.0
+offset_right = 428.0
+offset_bottom = 315.0
+text = "Colete os números na ordem 
+certa para completar a 
+equação e alcançar o 
+resultado esperado."
+label_settings = SubResource("LabelSettings_cwqqj")
+
+[node name="TextoObjetivo" parent="GerenciadorFase/HUD2" parent_id_path=PackedInt32Array(2067538410, 1334612400) index="0" unique_id=1720904562]
+offset_top = 23.0
+offset_bottom = 78.0
 
 [editable path="GerenciadorFase"]
 [editable path="GerenciadorFase/HUD2"]
