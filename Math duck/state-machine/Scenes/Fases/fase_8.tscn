@@ -154,6 +154,7 @@ position = Vector2(37, 183)
 [node name="GerenciadorFase" parent="." unique_id=1254954492 node_paths=PackedStringArray("grupo_spawn_points") instance=ExtResource("7_63hj5")]
 grupo_spawn_points = NodePath("../Spawnpoints")
 nivel_dificuldade = 2
+tempo_maximo = 40.0
 
 [node name="TextoTempo" parent="GerenciadorFase/HUD" parent_id_path=PackedInt32Array(1254954492, 1283096341) index="0" unique_id=497673619]
 offset_left = 585.0
