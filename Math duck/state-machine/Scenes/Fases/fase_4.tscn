@@ -93,6 +93,8 @@ sources/0 = SubResource("TileSetAtlasSource_jbymy")
 [sub_resource type="LabelSettings" id="LabelSettings_g1e3k"]
 font = ExtResource("7_cwqqj")
 font_size = 28
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Gradient" id="Gradient_tumiv"]
 interpolation_mode = 1
@@ -144,7 +146,7 @@ offset_left = 360.0
 offset_top = 64.0
 offset_right = 457.0
 offset_bottom = 87.0
-text = "Use o dash!"
+text = "Use o impulso!"
 label_settings = SubResource("LabelSettings_g1e3k")
 metadata/_edit_use_anchors_ = true
 
