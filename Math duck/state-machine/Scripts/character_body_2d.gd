@@ -19,7 +19,7 @@ var vidas = 3
 var invulneravel = false 
 var posicao_inicial: Vector2 
 
-const MENU_GAME_OVER = preload("res://menu_game_over.tscn")
+const MENU_GAME_OVER = preload("res://Scenes/Fases/menu_game_over.tscn")
 
 func _ready():
 	posicao_inicial = global_position

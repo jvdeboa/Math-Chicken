@@ -1,13 +1,13 @@
 [gd_scene format=4 uid="uid://htbpg14ug2cb"]
 
 [ext_resource type="PackedScene" uid="uid://d018oh7rcugau" path="res://bg.tscn" id="1_6tnni"]
-[ext_resource type="PackedScene" uid="uid://bys7gueg1q52s" path="res://portal.tscn" id="2_bemxe"]
+[ext_resource type="PackedScene" uid="uid://bys7gueg1q52s" path="res://Scenes/Fases/portal.tscn" id="2_bemxe"]
 [ext_resource type="Texture2D" uid="uid://b3hvy6ot236dn" path="res://Parallax/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="3_8dtid"]
 [ext_resource type="PackedScene" uid="uid://c55n8k331p5do" path="res://Main Character/character_body_2d.tscn" id="4_7gpko"]
 [ext_resource type="PackedScene" uid="uid://x4lb13qqme1u" path="res://gerenciador/gerenciador_fase.tscn" id="5_x5l0n"]
 [ext_resource type="PackedScene" uid="uid://b7ass5yp5ikpy" path="res://Scenes/Fases/hud_2.tscn" id="6_fvvj5"]
-[ext_resource type="PackedScene" uid="uid://d0pcbw1rgma0s" path="res://inimigo_estatico.tscn" id="7_awwhv"]
-[ext_resource type="PackedScene" uid="uid://godhv45n7v64" path="res://inimigo.tscn" id="8_u6dhq"]
+[ext_resource type="PackedScene" uid="uid://d0pcbw1rgma0s" path="res://Scenes/Enemys/inimigo_estatico.tscn" id="7_awwhv"]
+[ext_resource type="PackedScene" uid="uid://godhv45n7v64" path="res://Scenes/Enemys/inimigo.tscn" id="8_u6dhq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7gpko"]
 texture = ExtResource("3_8dtid")

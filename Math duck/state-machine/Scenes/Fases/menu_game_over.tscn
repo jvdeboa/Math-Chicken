@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cugfchhgemlqr"]
 
-[ext_resource type="Script" uid="uid://gl8ed5il2pfb" path="res://menu_game_over.gd" id="1_qpg8w"]
+[ext_resource type="Script" uid="uid://gl8ed5il2pfb" path="res://Scripts/Menu/menu_game_over.gd" id="1_qpg8w"]
 [ext_resource type="FontFile" uid="uid://d21e6txifcm8g" path="res://fonts/kenney-pixel.otf" id="2_jfflx"]
 
 [node name="MenuGameOver" type="CanvasLayer" unique_id=923784408]

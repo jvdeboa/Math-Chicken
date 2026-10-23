@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://godhv45n7v64"]
 
-[ext_resource type="Script" uid="uid://dypytikdmyqy" path="res://inimigo.gd" id="1_030df"]
+[ext_resource type="Script" uid="uid://dypytikdmyqy" path="res://Scripts/Enemys/inimigo.gd" id="1_030df"]
 [ext_resource type="Texture2D" uid="uid://mab6cbnp8nrm" path="res://sprites/inimigo/Sprite-0004.png" id="2_0b8xr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0b8xr"]

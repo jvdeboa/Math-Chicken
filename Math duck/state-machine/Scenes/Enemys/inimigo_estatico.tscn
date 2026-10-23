@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d0pcbw1rgma0s"]
 
-[ext_resource type="Script" uid="uid://dtut3t1u60yks" path="res://inimigo_estatico.gd" id="1_n2lkb"]
+[ext_resource type="Script" uid="uid://dtut3t1u60yks" path="res://Scripts/Enemys/inimigo_estatico.gd" id="1_n2lkb"]
 [ext_resource type="Texture2D" uid="uid://mab6cbnp8nrm" path="res://sprites/inimigo/Sprite-0004.png" id="2_mswum"]
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_4mjk6"]

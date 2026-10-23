@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://dxr14x5urbe5q"]
 
 [ext_resource type="PackedScene" uid="uid://d018oh7rcugau" path="res://bg.tscn" id="1_f4x4h"]
-[ext_resource type="PackedScene" uid="uid://bys7gueg1q52s" path="res://portal.tscn" id="2_3ymrk"]
+[ext_resource type="PackedScene" uid="uid://bys7gueg1q52s" path="res://Scenes/Fases/portal.tscn" id="2_3ymrk"]
 [ext_resource type="Texture2D" uid="uid://b3hvy6ot236dn" path="res://Parallax/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="3_7s88t"]
 [ext_resource type="PackedScene" uid="uid://c55n8k331p5do" path="res://Main Character/character_body_2d.tscn" id="4_ors8i"]
 [ext_resource type="PackedScene" uid="uid://x4lb13qqme1u" path="res://gerenciador/gerenciador_fase.tscn" id="5_ngdoj"]
