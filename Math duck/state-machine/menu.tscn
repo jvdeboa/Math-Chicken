@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bc52qnsffw6ix"]
+
+[ext_resource type="Texture2D" uid="uid://ny8435agoh6o" path="res://Textures/buttons.png" id="1_lti8b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4auea"]
+atlas = ExtResource("1_lti8b")
+region = Rect2(1, 10, 30, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke1j0"]
+atlas = ExtResource("1_lti8b")
+region = Rect2(33, 10, 30, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ogw2"]
+atlas = ExtResource("1_lti8b")
+region = Rect2(65, 10, 30, 14)
+
+[node name="Control" type="Control" unique_id=757129170]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1551152425]
+layout_mode = 0
+offset_left = 127.999985
+offset_top = 82.0
+offset_right = 157.99998
+offset_bottom = 96.0
+scale = Vector2(5, 5)
+texture_normal = SubResource("AtlasTexture_4auea")
+texture_pressed = SubResource("AtlasTexture_ke1j0")
+texture_hover = SubResource("AtlasTexture_8ogw2")
+
+[node name="TextureButton2" type="TextureButton" parent="." unique_id=833690597]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 188.0
+offset_right = 161.0
+offset_bottom = 202.0
+scale = Vector2(5, 5)
+texture_normal = SubResource("AtlasTexture_4auea")
+texture_pressed = SubResource("AtlasTexture_ke1j0")
+texture_hover = SubResource("AtlasTexture_8ogw2")
