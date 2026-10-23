@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 		if texto_tempo: texto_tempo.text = "0.00"
 		
 		jogo_terminou = true
-		print("Tempo Esgotado!")
+		print("tempo esgotado")
 		
 		# Trava a física do jogador sem disparar o game over padrão por dano
 		var jogador = get_tree().get_first_node_in_group("jogador")
@@ -164,7 +164,7 @@ func registrar_coleta(valor_coletado: String, pos_bloco: Vector2, jogador: Chara
 		await get_tree().create_timer(0.5).timeout 
 		
 		if avaliar_expressao(blocos_coletados) == float(resultado_esperado):
-			print("VITÓRIA!")
+			print("vitoria")
 			if efeito_confete:
 				efeito_confete.global_position = jogador.global_position
 				efeito_confete.emitting = true
@@ -173,12 +173,12 @@ func registrar_coleta(valor_coletado: String, pos_bloco: Vector2, jogador: Chara
 			limpar_blocos_restantes()
 			jogador.set_physics_process(true)
 		else:
-			print("Morreu! O resultado final estava errado.")
+			print("o resultado final estava errado")
 			matar_jogador(jogador)
 			
 	else:
 		if not tem_solucao_futura(blocos_coletados, blocos_no_mapa):
-			print("Morreu cedo! Nenhuma combinação com os blocos restantes dará ", resultado_esperado)
+			print("nenhuma combinação com os blocos restantes dará ", resultado_esperado)
 			jogo_terminou = true 
 			matar_jogador(jogador)
 
@@ -264,7 +264,7 @@ func matar_jogador(jogador: CharacterBody2D) -> void:
 		jogador.tomar_dano(jogador.global_position.x - 10, 1, true) 
 		
 		if jogador.vidas > 0:
-			print("Perdeu uma vida pela matemática! Tente novamente.")
+			print("perdeu uma vida pela matemática")
 			
 			blocos_coletados.clear()
 			limpar_blocos_restantes()
