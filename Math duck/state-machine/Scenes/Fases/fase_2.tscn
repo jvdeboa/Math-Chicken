@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c55n8k331p5do" path="res://Main Character/character_body_2d.tscn" id="4_iolds"]
 [ext_resource type="PackedScene" uid="uid://x4lb13qqme1u" path="res://gerenciador/gerenciador_fase.tscn" id="5_u0tcw"]
 [ext_resource type="PackedScene" uid="uid://b7ass5yp5ikpy" path="res://Scenes/Fases/hud_2.tscn" id="7_cd0y6"]
+[ext_resource type="PackedScene" uid="uid://godhv45n7v64" path="res://inimigo.tscn" id="7_tus8r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xe686"]
 texture = ExtResource("3_4823c")
@@ -118,7 +119,7 @@ position = Vector2(36, 163)
 position = Vector2(479, 290)
 
 [node name="Marker2D9" type="Marker2D" parent="Spawnpoints" unique_id=31601825]
-position = Vector2(257, 163)
+position = Vector2(294, 126)
 
 [node name="Marker2D8" type="Marker2D" parent="Spawnpoints" unique_id=1628825842]
 position = Vector2(373, 110)
@@ -127,7 +128,7 @@ position = Vector2(373, 110)
 position = Vector2(224, 115)
 
 [node name="Marker2D3" type="Marker2D" parent="Spawnpoints" unique_id=1778438944]
-position = Vector2(611, 31)
+position = Vector2(613, 41)
 
 [node name="Marker2D4" type="Marker2D" parent="Spawnpoints" unique_id=2070876774]
 position = Vector2(112, 68)
@@ -140,6 +141,12 @@ grupo_spawn_points = NodePath("../Spawnpoints")
 nivel_dificuldade = 1
 texto_hud = NodePath("HUD2/TextoObjetivo")
 efeito_confete = NodePath("EfeitoConfete")
+
+[node name="TextoTempo" parent="GerenciadorFase/HUD" parent_id_path=PackedInt32Array(54439541, 1691194926) index="1" unique_id=975742819]
+offset_left = 591.0
+offset_top = 4.9999995
+offset_right = 631.0
+offset_bottom = 28.0
 
 [node name="HUD2" parent="GerenciadorFase" unique_id=1334612400 instance=ExtResource("7_cd0y6")]
 
@@ -162,4 +169,8 @@ scale_amount_min = 4.0
 scale_amount_max = 5.0
 color_initial_ramp = SubResource("Gradient_cjr2x")
 
+[node name="Inimigo" parent="." unique_id=1490096557 instance=ExtResource("7_tus8r")]
+position = Vector2(452, 164)
+
+[editable path="GerenciadorFase"]
 [editable path="GerenciadorFase/HUD2"]

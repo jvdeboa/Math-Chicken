@@ -138,6 +138,7 @@ position = Vector2(35, 100)
 grupo_spawn_points = NodePath("../Spawnpoints")
 nivel_dificuldade = 2
 texto_hud = NodePath("HUD2/TextoObjetivo")
+tempo_maximo = 40.0
 efeito_confete = NodePath("EfeitoConfete")
 
 [node name="HUD2" parent="GerenciadorFase" unique_id=1334612400 instance=ExtResource("6_1kp7f")]

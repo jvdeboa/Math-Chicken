@@ -17,6 +17,8 @@ var quantidade_necessaria: int = 3
 var blocos_no_mapa: Array[String] = []
 var jogo_terminou: bool = false
 
+const TELA_TEMPO_ACABOU = preload("res://menu_timed_out.tscn")
+
 func _ready() -> void:
 	add_to_group("gerenciador")
 	tempo_restante = tempo_maximo
@@ -38,11 +40,15 @@ func _process(delta: float) -> void:
 		jogo_terminou = true
 		print("tempo esgotado")
 		
+		# Trava a física do jogador sem disparar o game over padrão por dano
 		var jogador = get_tree().get_first_node_in_group("jogador")
 		if jogador:
-			if jogador.has_method("tomar_dano"):
-				jogador.tomar_dano(jogador.global_position.x, jogador.vidas)
-
+			jogador.set_physics_process(false)
+				
+		# Abre exclusivamente a tela de tempo esgotado
+		var tela_tempo = TELA_TEMPO_ACABOU.instantiate()
+		get_parent().add_child(tela_tempo)
+		get_tree().paused = true
 func gerar_nova_equacao() -> void:
 	var quantidade_numeros: int = 2
 	var operacoes_permitidas: Array = []

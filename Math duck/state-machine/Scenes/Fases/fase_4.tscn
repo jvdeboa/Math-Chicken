@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c55n8k331p5do" path="res://Main Character/character_body_2d.tscn" id="4_jbymy"]
 [ext_resource type="PackedScene" uid="uid://x4lb13qqme1u" path="res://gerenciador/gerenciador_fase.tscn" id="5_gefyy"]
 [ext_resource type="PackedScene" uid="uid://b7ass5yp5ikpy" path="res://Scenes/Fases/hud_2.tscn" id="6_wdwfv"]
+[ext_resource type="FontFile" uid="uid://d21e6txifcm8g" path="res://fonts/kenney-pixel.otf" id="7_cwqqj"]
 [ext_resource type="PackedScene" uid="uid://d0pcbw1rgma0s" path="res://inimigo_estatico.tscn" id="7_d6r1r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jbymy"]
@@ -89,6 +90,12 @@ texture = ExtResource("3_5io7x")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_jbymy")
 
+[sub_resource type="LabelSettings" id="LabelSettings_g1e3k"]
+font = ExtResource("7_cwqqj")
+font_size = 28
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="Gradient" id="Gradient_tumiv"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0.08415841, 0.26732674, 0.46534654, 0.6732673, 0.84653467, 1)
@@ -133,6 +140,15 @@ texto_hud = NodePath("HUD2/TextoObjetivo")
 efeito_confete = NodePath("EfeitoConfete")
 
 [node name="HUD2" parent="GerenciadorFase" unique_id=1334612400 instance=ExtResource("6_wdwfv")]
+
+[node name="Label" type="Label" parent="GerenciadorFase/HUD2" unique_id=1599282988]
+offset_left = 360.0
+offset_top = 64.0
+offset_right = 457.0
+offset_bottom = 87.0
+text = "Use o impulso!"
+label_settings = SubResource("LabelSettings_g1e3k")
+metadata/_edit_use_anchors_ = true
 
 [node name="EfeitoConfete" type="CPUParticles2D" parent="GerenciadorFase" unique_id=2063636437]
 emitting = false
